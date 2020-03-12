@@ -33,6 +33,7 @@ class LoginFragment : Fragment() {
             val transaction : FragmentTransaction = fm!!.beginTransaction()
 
             val load_fragment = HomeFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_home")
             transaction.addToBackStack("fragment_home")
             transaction.commit()

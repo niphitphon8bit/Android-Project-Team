@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import com.example.hr.Personal.PersonalFragment
 
 import com.example.hr.R
 
@@ -19,7 +21,9 @@ class ExpertiseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_expertise, container, false)
+        val view : View =  inflater.inflate(R.layout.fragment_expertise, container, false)
+
+        return view
     }
 
 

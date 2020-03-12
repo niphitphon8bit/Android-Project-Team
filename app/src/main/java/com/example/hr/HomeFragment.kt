@@ -41,42 +41,49 @@ class HomeFragment : Fragment() {
 
         btn_personal!!.setOnClickListener{
             val load_fragment = PersonalFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_personal")
             transaction.addToBackStack("fragment_personal")
             transaction.commit()
         }
         btn_address!!.setOnClickListener{
             val load_fragment = AddressFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_address")
             transaction.addToBackStack("fragment_address")
             transaction.commit()
         }
         btn_education!!.setOnClickListener{
             val load_fragment = EducationFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_education")
             transaction.addToBackStack("fragment_education")
             transaction.commit()
         }
         btn_professional_license!!.setOnClickListener{
             val load_fragment = ProfessionalLicenseFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_professional_license")
             transaction.addToBackStack("fragment_professional_license")
             transaction.commit()
         }
         btn_membership_card!!.setOnClickListener{
             val load_fragment = MembershipCardFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_membership_card")
             transaction.addToBackStack("fragment_membership_card")
             transaction.commit()
         }
         btn_expertise!!.setOnClickListener{
             val load_fragment = ExpertiseFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_expertise")
             transaction.addToBackStack("fragment_expertise")
             transaction.commit()
         }
         btn_work_experience!!.setOnClickListener{
             val load_fragment = WorkExperienceFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_work_experience")
             transaction.addToBackStack("fragment_work_experience")
             transaction.commit()
