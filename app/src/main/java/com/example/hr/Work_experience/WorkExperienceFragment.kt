@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
+import android.widget.ImageButton
 import android.widget.ListView
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -123,13 +125,19 @@ class WorkExperienceFragment : Fragment() {
             val transaction : FragmentTransaction = fm!!.beginTransaction()
 
             var btn_add = view.findViewById<FloatingActionButton>(R.id.floatingActionButton) as FloatingActionButton
+            val btn_back = view.findViewById(R.id.view_btn_back) as ImageButton
 
             btn_add!!.setOnClickListener{
-                val load_fragment = MembershipCardInputFragment()
+                val load_fragment = WorkExperienceInputFragment()
                 transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
                 transaction.addToBackStack("WorkExperienceInputFragment")
                 transaction.commit()
+            }
+
+            btn_back.setOnClickListener{
+            val fm: FragmentManager = activity!!.getSupportFragmentManager()
+            fm.popBackStack("fragment_work_experience", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             }
 
         return view

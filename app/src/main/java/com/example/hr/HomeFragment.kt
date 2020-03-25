@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import com.example.hr.Address.AddressFragment
 import com.example.hr.Education.EducationFragment
@@ -28,6 +29,7 @@ class HomeFragment : Fragment() {
     lateinit var btn_membership_card : Button
     lateinit var btn_expertise : Button
     lateinit var btn_work_experience : Button
+    lateinit var textName : TextView
     private lateinit var load_fragment : Fragment
 
     /**
@@ -51,6 +53,11 @@ class HomeFragment : Fragment() {
         btn_membership_card = view.findViewById<Button>(R.id.view_btn_membership) as Button
         btn_expertise = view.findViewById<Button>(R.id.view_btn_expertise) as Button
         btn_work_experience = view.findViewById<Button>(R.id.view_btn_work) as Button
+        textName = view.findViewById<TextView>(R.id.view_name_user)
+        // ---------------------------------------------------------------------------- //
+
+        // ---------------------------- Set value ------------------------------------ //
+        textName.text = "นำโชค สิงหะชัย"
         // ---------------------------------------------------------------------------- //
 
         btn_personal.setOnClickListener{
