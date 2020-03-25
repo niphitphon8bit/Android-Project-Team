@@ -95,8 +95,8 @@ class ExpertiseFragment : Fragment() {
         btn_add!!.setOnClickListener{
             val load_fragment = ExpertiseInputFragment()
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-            transaction.replace(R.id.contentContainer, load_fragment,"ExpertiseInputFragment")
-            transaction.addToBackStack("ExpertiseInputFragment")
+            transaction.replace(R.id.contentContainer, load_fragment,"_ExpertiseInputFragment")
+            transaction.addToBackStack("_ExpertiseInputFragment")
             transaction.commit()
         }
 
