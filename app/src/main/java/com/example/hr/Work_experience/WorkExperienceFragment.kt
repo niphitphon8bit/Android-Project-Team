@@ -125,7 +125,7 @@ class WorkExperienceFragment : Fragment() {
             var btn_add = view.findViewById<FloatingActionButton>(R.id.floatingActionButton) as FloatingActionButton
 
             btn_add!!.setOnClickListener{
-                val load_fragment = MembershipCardInputFragment()
+                val load_fragment = WorkExperienceInputFragment()
                 transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
                 transaction.addToBackStack("WorkExperienceInputFragment")

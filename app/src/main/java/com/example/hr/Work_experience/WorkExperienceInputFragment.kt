@@ -21,8 +21,7 @@ class WorkExperienceInputFragment : Fragment() {
        var view = inflater.inflate(R.layout.fragment_work_experience_input, container, false)
 
 
-
-
+        
 
 
         return view
