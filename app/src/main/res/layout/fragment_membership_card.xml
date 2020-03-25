@@ -9,14 +9,25 @@
     tools:context=".Membership_card.MembershipCardFragment"
     >
 
+    <ImageButton
+        android:id="@+id/view_btn_back"
+        android:layout_width="34dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/view_name_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textSize="25dp"
-        android:textColor="#FFFFFF"
+        android:layout_marginTop="60dp"
         android:text="บันทึกบัตรสมาชิกสภาการพยาบาล"
+        android:textColor="#FFFFFF"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

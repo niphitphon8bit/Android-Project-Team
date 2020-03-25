@@ -52,7 +52,7 @@ class MembershipCardAdapter (fragmentActivity: FragmentActivity, val dataSource:
         holder.Holder()
 
         holder.view_membership_name.setText( dataSource.getJSONObject(position).getString("membership_name").toString() )
-        holder.view_membership_id.setText( dataSource.getJSONObject(position).getString("membership_id").toString() )
+        holder.view_membership_id.setText( "เลขที่สมาชิก: " + dataSource.getJSONObject(position).getString("membership_id").toString() )
         holder.view_issue_date.setText( dataSource.getJSONObject(position).getString("issue_date").toString() )
         holder.view_expiry_date.setText( dataSource.getJSONObject(position).getString("expiry_date").toString() )
 
@@ -66,9 +66,10 @@ class MembershipCardAdapter (fragmentActivity: FragmentActivity, val dataSource:
 
             val fm = thisActivity.supportFragmentManager
             val transaction: FragmentTransaction = fm!!.beginTransaction()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             val load_fragment = MembershipCardInputFragment().newInstance(key, username, membership_name, membership_id, issue_date, expiry_date)
-            transaction.replace(R.id.contentContainer, load_fragment,"MembershipCardInputFragment")
-            transaction.addToBackStack("MembershipCardInputFragment")
+            transaction.replace(R.id.contentContainer, load_fragment,"_MembershipCardInputFragment")
+            transaction.addToBackStack("_MembershipCardInputFragment")
             transaction.commit()
         }
 

@@ -8,9 +8,9 @@
 
     <Button
         android:id="@+id/view_btn_license"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
@@ -23,24 +23,24 @@
 
     <Button
         android:id="@+id/view_btn_address"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
         android:text="@string/address"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_btn_personal" />
 
     <Button
         android:id="@+id/view_btn_work"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
@@ -53,7 +53,7 @@
 
     <Button
         android:id="@+id/view_btn_personal"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/btn_rounded_main_menu"
@@ -68,24 +68,24 @@
 
     <Button
         android:id="@+id/view_btn_education"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
         android:text="@string/Educational_background"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_btn_address" />
 
     <Button
         android:id="@+id/view_btn_expertise"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
@@ -98,9 +98,9 @@
 
     <Button
         android:id="@+id/view_btn_membership"
-        android:layout_width="400dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"

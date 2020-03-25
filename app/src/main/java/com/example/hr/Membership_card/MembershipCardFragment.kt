@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -110,13 +112,19 @@ class MembershipCardFragment : Fragment() {
         val transaction : FragmentTransaction = fm!!.beginTransaction()
 
         var btn_add = view.findViewById<FloatingActionButton>(R.id.floatingActionButton) as FloatingActionButton
+        val btn_back = view.findViewById(R.id.view_btn_back) as ImageButton
 
         btn_add!!.setOnClickListener{
-            val load_fragment = MembershipCardInputFragment()
+            val load_fragment = MembershipCardInputFragment().newInstance("", account_username, "", "", "", "")
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-            transaction.replace(R.id.contentContainer, load_fragment,"MembershipCardInputFragment")
-            transaction.addToBackStack("MembershipCardInputFragment")
+            transaction.replace(R.id.contentContainer, load_fragment,"_MembershipCardInputFragment")
+            transaction.addToBackStack("_MembershipCardInputFragment")
             transaction.commit()
+        }
+
+        btn_back.setOnClickListener{
+            val fm: FragmentManager = activity!!.getSupportFragmentManager()
+            fm.popBackStack("fragment_membership_card", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
 
             return view
