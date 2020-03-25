@@ -114,8 +114,8 @@ class MembershipCardFragment : Fragment() {
         btn_add!!.setOnClickListener{
             val load_fragment = MembershipCardInputFragment().newInstance("", account_username, "", "", "", "")
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-            transaction.replace(R.id.contentContainer, load_fragment,"MembershipCardInputFragment")
-            transaction.addToBackStack("MembershipCardInputFragment")
+            transaction.replace(R.id.contentContainer, load_fragment,"_MembershipCardInputFragment")
+            transaction.addToBackStack("_MembershipCardInputFragment")
             transaction.commit()
         }
 

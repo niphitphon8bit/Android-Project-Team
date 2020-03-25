@@ -116,7 +116,7 @@ class MembershipCardInputFragment : Fragment() {
 
                     Toast.makeText(activity!!.baseContext, "ลบสำเร็จ", Toast.LENGTH_SHORT).show()
                     val fm: FragmentManager = activity!!.getSupportFragmentManager()
-                    fm.popBackStack("MembershipCardInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    fm.popBackStack("_MembershipCardInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 })
             builder.setNegativeButton("ยกเลิก",
                 DialogInterface.OnClickListener { dialog, which ->
@@ -126,8 +126,8 @@ class MembershipCardInputFragment : Fragment() {
         }
 
         btn_back.setOnClickListener{
-//            LoginManager.getInstance().logOut()
-//            activity!!.supportFragmentManager.popBackStack()
+            val fm: FragmentManager = activity!!.getSupportFragmentManager()
+            fm.popBackStack("_MembershipCardInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
 
         return view
