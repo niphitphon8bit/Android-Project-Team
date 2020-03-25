@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide();   // Hide title bar
         setContentView(R.layout.activity_main)
 
         val manager = supportFragmentManager
@@ -28,4 +29,5 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
 }
