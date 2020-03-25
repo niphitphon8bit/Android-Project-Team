@@ -74,7 +74,7 @@ class ExpertiseFragment : Fragment() {
 
                 }
 
-                val adapter = MembershipCardAdapter(activity!!, list, account_username)
+                val adapter = ExpertiseAdapter(activity!!, list, account_username)
 
                 recyclerView.adapter = adapter
 

@@ -27,10 +27,10 @@ class ExpertiseAdapter (fragmentActivity: FragmentActivity, val dataSource: JSON
 
         fun Holder(){
             layout = View.findViewById<View>(R.id.recy_expertise_layout) as LinearLayout
-            view_title_name_th = View.findViewById<View>(R.id.view_title_name_th) as TextView
-            view_title_name_en = View.findViewById<View>(R.id.view_title_name_en) as TextView
-            view_text_th = View.findViewById<View>(R.id.view_text_th) as TextView
-            view_text_en = View.findViewById<View>(R.id.view_text_en) as TextView
+            view_title_name_th = View.findViewById<View>(R.id.recy_view_title_name_th) as TextView
+           // view_title_name_en = View.findViewById<View>(R.id.view_title_name_en) as TextView
+            view_text_th = View.findViewById<View>(R.id.recy_view_text_th) as TextView
+           // view_text_en = View.findViewById<View>(R.id.view_text_en) as TextView
         }
     }
 
@@ -51,9 +51,9 @@ class ExpertiseAdapter (fragmentActivity: FragmentActivity, val dataSource: JSON
         holder.Holder()
 
         holder.view_title_name_th.setText( dataSource.getJSONObject(position).getString("title_name_th").toString() )
-        holder.view_title_name_en.setText( dataSource.getJSONObject(position).getString("title_name_en").toString() )
+//        holder.view_title_name_en.setText( dataSource.getJSONObject(position).getString("title_name_en").toString() )
         holder.view_text_th.setText( dataSource.getJSONObject(position).getString("text_th").toString() )
-        holder.view_text_en.setText( dataSource.getJSONObject(position).getString("text_en").toString() )
+//        holder.view_text_en.setText( dataSource.getJSONObject(position).getString("text_en").toString() )
 
         holder.layout.setOnClickListener {
             var key = dataSource.getJSONObject(position).getString("key").toString()
@@ -66,8 +66,8 @@ class ExpertiseAdapter (fragmentActivity: FragmentActivity, val dataSource: JSON
             val fm = thisActivity.supportFragmentManager
             val transaction: FragmentTransaction = fm!!.beginTransaction()
             val load_fragment = ExpertiseInputFragment().newInstance(key, username, title_name_th, title_name_en, text_th, text_en)
-            transaction.replace(R.id.contentContainer, load_fragment,"ExpertiseInputFragment")
-            transaction.addToBackStack("ExpertiseInputFragment")
+            transaction.replace(R.id.contentContainer, load_fragment,"_ExpertiseInputFragment")
+            transaction.addToBackStack("_ExpertiseInputFragment")
             transaction.commit()
         }
 

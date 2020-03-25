@@ -1,6 +1,8 @@
 package com.example.hr.Expertise
 
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,8 +12,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hr.Membership_card.MembershipCardInputFragment
 
 import com.example.hr.R
 import com.google.firebase.database.FirebaseDatabase
@@ -77,7 +79,7 @@ class ExpertiseInputFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "กรุณากรอกวประเด็นสำคัญ (อังกฤษ)", Toast.LENGTH_SHORT).show()
             }else if(check_insert == true){
                 if(Str_key == ""){
-                    var user =  obj_hr_expertise.username
+                    var user =  "60160157"
                     obj_hr_expertise = hr_expertise(
                         user,
                         view_title_name_th.text.toString(),
@@ -101,11 +103,36 @@ class ExpertiseInputFragment : Fragment() {
             }
         }
 
+        btn_delete.setOnClickListener{
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this.context)
+            builder.setMessage("ต้องการลบหรือไม่?")
+            builder.setPositiveButton("ลบ",
+                DialogInterface.OnClickListener { dialog, id ->
+                    val mMessagesRef = mRootRef.child("hr_expertise").child(Str_key)
+
+                    mMessagesRef.setValue(null)
+
+                    Toast.makeText(activity!!.baseContext, "ลบสำเร็จ", Toast.LENGTH_SHORT).show()
+                    val fm: FragmentManager = activity!!.getSupportFragmentManager()
+                    fm.popBackStack("_ExpertiseInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                })
+            builder.setNegativeButton("ยกเลิก",
+                DialogInterface.OnClickListener { dialog, which ->
+                    //dialog.dismiss();
+                })
+            builder.show()
+        }
+
+        btn_back.setOnClickListener{
+            val fm: FragmentManager = activity!!.getSupportFragmentManager()
+            fm.popBackStack("_ExpertiseInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        }
+
         return view
     }
 
-    fun newInstance(key: String, username:String, title_name_th: String, title_name_en:String, text_th:String, text_en:String): MembershipCardInputFragment {
-        val fragment = MembershipCardInputFragment()
+    fun newInstance(key: String, username:String, title_name_th: String, title_name_en:String, text_th:String, text_en:String): ExpertiseInputFragment {
+        val fragment = ExpertiseInputFragment()
         val bundle = Bundle()
         bundle.putString("key", key)
         bundle.putString("username", username)
@@ -122,7 +149,7 @@ class ExpertiseInputFragment : Fragment() {
 
         val bundle = arguments
         if (bundle != null) {
-            obj_hr_expertise = ExpertiseInputFragment.hr_expertise(
+            obj_hr_expertise = hr_expertise(
                 bundle.getString("username").toString(),
                 bundle.getString("title_name_th").toString(),
                 bundle.getString("title_name_en").toString(),
@@ -132,5 +159,6 @@ class ExpertiseInputFragment : Fragment() {
             Str_key = bundle.getString("key").toString()
         }
     }
+
 
 }
