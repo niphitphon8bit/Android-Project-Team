@@ -69,7 +69,7 @@ class MembershipCardInputFragment : Fragment() {
             var check_insert = true
             if(view_membership_name.text.toString() == ""){
                 check_insert = false
-                Toast.makeText(activity!!.baseContext, "กรุณากรอกชื่อวิชาชีพ\n", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity!!.baseContext, "กรุณากรอกชื่อวิชาชีพ", Toast.LENGTH_SHORT).show()
             }else if(view_membership_id.text.toString() == ""){
                 check_insert = false
                 Toast.makeText(activity!!.baseContext, "กรุณากรอกเลขที่สมาชิกสภาวิชาชีพ", Toast.LENGTH_SHORT).show()
@@ -81,8 +81,9 @@ class MembershipCardInputFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "กรุณากรอกวันหมดอายุ", Toast.LENGTH_SHORT).show()
             }else if(check_insert == true){
                 if(Str_key == ""){
+                    var user =  obj_hr_membership_card.username
                     obj_hr_membership_card = hr_membership_card(
-                        obj_hr_membership_card.username,
+                        user,
                         view_membership_name.text.toString(),
                         view_membership_id.text.toString(),
                         view_issue_date.text.toString(),
@@ -125,8 +126,8 @@ class MembershipCardInputFragment : Fragment() {
         }
 
         btn_back.setOnClickListener{
-            LoginManager.getInstance().logOut()
-            activity!!.supportFragmentManager.popBackStack()
+//            LoginManager.getInstance().logOut()
+//            activity!!.supportFragmentManager.popBackStack()
         }
 
         return view
