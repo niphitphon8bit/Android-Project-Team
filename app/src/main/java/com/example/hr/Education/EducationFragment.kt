@@ -7,16 +7,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.hr.Membership_card.MembershipCardAdapter
 import com.example.hr.Personal.PersonalFragment
 
 import com.example.hr.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import org.json.JSONArray
+import org.json.JSONObject
 
 /**
  * A simple [Fragment] subclass.
  */
 class EducationFragment : Fragment() {
+
+    private lateinit var recyclerView: RecyclerView
+    var account_username : String = "60160157"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,9 +38,59 @@ class EducationFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view:View = inflater.inflate(R.layout.fragment_education, container, false)
+        val mRootRef = FirebaseDatabase.getInstance().reference
+
+        val mMessagesRef = mRootRef.child("hr_education")
+
+        mMessagesRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val list = JSONArray()
+                recyclerView = view.findViewById(R.id.recyLayout)
+
+                val layoutManager: RecyclerView.LayoutManager =
+                    LinearLayoutManager(activity!!.baseContext)
+                recyclerView.layoutManager = layoutManager
+
+                for (ds in dataSnapshot.children) {
+
+                    val jObject = JSONObject()
+
+                    val username = ds.child("username").getValue(String::class.java)!!
+                    val degree = ds.child("degree").getValue(String::class.java)!!
+                    val name= ds.child("name").getValue(String::class.java)!!
+                    val start_date = ds.child("start_date").getValue(String::class.java)!!
+                    val end_date = ds.child("end_date").getValue(String::class.java)!!
+
+                    if (username == account_username) {
+                        jObject.put("key", ds.key)
+                        jObject.put("username", username)
+                        jObject.put("degree", degree)
+                        jObject.put("name", name)
+                        jObject.put("start_date", start_date)
+                        jObject.put("exp_date", end_date)
+
+                        list.put(jObject)
+                    }
+
+                }
+
+                val adapter = MembershipCardAdapter(activity!!, list, account_username)
+
+                recyclerView.adapter = adapter
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        }) // mMessagesRef.addValueEventListener
+
         val fm = fragmentManager
         val transaction : FragmentTransaction = fm!!.beginTransaction()
         var btn_add = view.findViewById<FloatingActionButton>(R.id.floatingActionButton) as FloatingActionButton
+        val btn_back = view.findViewById(R.id.education_btn_back) as ImageButton
 
         btn_add!!.setOnClickListener{
             val load_fragment = EducationInputFragment()
@@ -34,6 +98,12 @@ class EducationFragment : Fragment() {
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_education_input")
             transaction.addToBackStack("fragment_education_input")
             transaction.commit()
+        }
+
+
+        btn_back.setOnClickListener{
+            val fm: FragmentManager = activity!!.getSupportFragmentManager()
+            fm.popBackStack("fragment_education", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
         return view
     }
