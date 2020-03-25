@@ -22,7 +22,7 @@ class MembershipCardInputFragment : Fragment() {
 
     data class hr_membership_card (
         var username: String? = "",
-        var professional_name: String? = "",
+        var membership_name: String? = "",
         var membership_id: String? = "",
         var issue_date: String? = "",
         var expiry_date: String? = ""
@@ -39,12 +39,12 @@ class MembershipCardInputFragment : Fragment() {
     }
 
 
-    fun newInstance(key: String, username:String, professional_name: String, membership_id:String, issue_date:String, expiry_date:String): MembershipCardInputFragment {
+    fun newInstance(key: String, username:String, membership_name: String, membership_id:String, issue_date:String, expiry_date:String): MembershipCardInputFragment {
         val fragment = MembershipCardInputFragment()
         val bundle = Bundle()
         bundle.putString("key", key)
         bundle.putString("username", username)
-        bundle.putString("professional_name", professional_name)
+        bundle.putString("membership_name", membership_name)
         bundle.putString("membership_id", membership_id)
         bundle.putString("issue_date", issue_date)
         bundle.putString("expiry_date", expiry_date)
@@ -59,7 +59,7 @@ class MembershipCardInputFragment : Fragment() {
         if (bundle != null) {
             obj_hr_membership_card = hr_membership_card(
                 bundle.getString("username").toString(),
-                bundle.getString("professional_name").toString(),
+                bundle.getString("membership_name").toString(),
                 bundle.getString("membership_id").toString(),
                 bundle.getString("issue_date").toString(),
                 bundle.getString("expiry_date").toString()

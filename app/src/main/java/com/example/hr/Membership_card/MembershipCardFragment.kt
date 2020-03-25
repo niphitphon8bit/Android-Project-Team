@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hr.Education.EducationInputFragment
 
 import com.example.hr.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -25,17 +28,17 @@ class MembershipCardFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     var account_username : String = "60160157"
-    private lateinit var obj_hr_membership_card : hr_membership_card
-
-    var Str_key = "" // key obj_hr_work_experience from firebase
-
-    data class hr_membership_card (
-        var username: String? = "",
-        var professional_name: String? = "",
-        var membership_id: String? = "",
-        var issue_date: String? = "",
-        var expiry_date: String? = ""
-    )
+//    private lateinit var obj_hr_membership_card : hr_membership_card
+//
+//    var Str_key = "" // key obj_hr_work_experience from firebase
+//
+//    data class hr_membership_card (
+//        var username: String? = "",
+//        var membership_name: String? = "",
+//        var membership_id: String? = "",
+//        var issue_date: String? = "",
+//        var expiry_date: String? = ""
+//    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,14 +51,14 @@ class MembershipCardFragment : Fragment() {
 
         val mMessagesRef = mRootRef.child("hr_membership_card")
 
-        var obj_hr_membership_card = hr_membership_card (
-            "60160157",
-            "ทดสอบ",
-            "1",
-            "25-3-2563",
-            "30-3-2563"
-        )
-        mMessagesRef.push().setValue(obj_hr_membership_card)
+//        var obj_hr_membership_card = hr_membership_card (
+//            "60160157",
+//            "ทดสอบ",
+//            "1",
+//            "25-3-2563",
+//            "30-3-2563"
+//        )
+//        mMessagesRef.push().setValue(obj_hr_membership_card)
 
         mMessagesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -100,7 +103,22 @@ class MembershipCardFragment : Fragment() {
 
             }
 
-        })
+        }) // mMessagesRef.addValueEventListener
+
+
+        val fm = fragmentManager
+        val transaction : FragmentTransaction = fm!!.beginTransaction()
+
+        var btn_add = view.findViewById<FloatingActionButton>(R.id.floatingActionButton) as FloatingActionButton
+
+        btn_add!!.setOnClickListener{
+            val load_fragment = MembershipCardInputFragment()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
+            transaction.replace(R.id.contentContainer, load_fragment,"MembershipCardInputFragment")
+            transaction.addToBackStack("MembershipCardInputFragment")
+            transaction.commit()
+        }
+
             return view
         }
 

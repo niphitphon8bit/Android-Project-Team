@@ -53,23 +53,23 @@ class MembershipCardAdapter (fragmentActivity: FragmentActivity, val dataSource:
 
         holder.view_membership_name.setText( dataSource.getJSONObject(position).getString("membership_name").toString() )
         holder.view_membership_id.setText( dataSource.getJSONObject(position).getString("membership_id").toString() )
-        holder.view_issue_date.setText( dataSource.getJSONObject(position).getString("ssue_date").toString() )
+        holder.view_issue_date.setText( dataSource.getJSONObject(position).getString("issue_date").toString() )
         holder.view_expiry_date.setText( dataSource.getJSONObject(position).getString("expiry_date").toString() )
 
         holder.layout.setOnClickListener {
-//            var key = dataSource.getJSONObject(position).getString("key").toString()
-//            var username = dataSource.getJSONObject(position).getString("username").toString()
-//            var professional_name = dataSource.getJSONObject(position).getString("categories_name").toString()
-//            var member_number = dataSource.getJSONObject(position).getString("categories_type").toString()
-//            var issue_date = dataSource.getJSONObject(position).getString("transaction_amount").toString()
-//            var expiry_date = dataSource.getJSONObject(position).getString("transaction_date").toString()
-//
-//            val fm = thisActivity.supportFragmentManager
-//            val transaction: FragmentTransaction = fm!!.beginTransaction()
-//            val Fragment = MembershipCardInputFragment().newInstance(key, username, professional_name, member_number, issue_date, expiry_date)
-//            transaction.replace(R.id.contentContainer, Fragment,"MembershipCardInputFragment")
-//            transaction.addToBackStack("MembershipCardInputFragment")
-//            transaction.commit()
+            var key = dataSource.getJSONObject(position).getString("key").toString()
+            var username = dataSource.getJSONObject(position).getString("username").toString()
+            var membership_name = dataSource.getJSONObject(position).getString("membership_name").toString()
+            var membership_id = dataSource.getJSONObject(position).getString("membership_id").toString()
+            var issue_date = dataSource.getJSONObject(position).getString("issue_date").toString()
+            var expiry_date = dataSource.getJSONObject(position).getString("expiry_date").toString()
+
+            val fm = thisActivity.supportFragmentManager
+            val transaction: FragmentTransaction = fm!!.beginTransaction()
+            val load_fragment = MembershipCardInputFragment().newInstance(key, username, membership_name, membership_id, issue_date, expiry_date)
+            transaction.replace(R.id.contentContainer, load_fragment,"MembershipCardInputFragment")
+            transaction.addToBackStack("MembershipCardInputFragment")
+            transaction.commit()
         }
 
     }

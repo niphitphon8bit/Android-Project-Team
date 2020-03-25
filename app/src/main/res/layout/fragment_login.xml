@@ -44,11 +44,11 @@
             android:background="@drawable/input"
             android:drawablePadding="16dp"
             android:hint="@string/username"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="#fff"
-            android:textColorHint="#fff"
-            android:importantForAutofill="no" />
+            android:textColorHint="#fff" />
 
         <EditText
             android:id="@+id/input_password"
@@ -62,11 +62,11 @@
             android:background="@drawable/input"
             android:drawablePadding="16dp"
             android:hint="@string/password"
+            android:importantForAutofill="no"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="#fff"
-            android:textColorHint="#fff"
-            android:importantForAutofill="no" />
+            android:textColorHint="#fff" />
 
         <Button
             android:id="@+id/view_btn_signin"
