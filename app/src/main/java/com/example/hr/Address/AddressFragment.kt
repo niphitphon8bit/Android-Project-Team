@@ -50,6 +50,8 @@ class AddressFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_address, container, false)
 
+        val view_title = view.findViewById<TextView>(R.id.view_title)
+
         val linearLayout_1 = view.findViewById<LinearLayout>(R.id.linearLayout_1)
         val linearLayout_2 = view.findViewById<LinearLayout>(R.id.linearLayout_2)
         val linearLayout_3 = view.findViewById<LinearLayout>(R.id.linearLayout_3)
@@ -63,18 +65,22 @@ class AddressFragment : Fragment() {
         view_btn_next_1.setOnClickListener {
             linearLayout_1.setVisibility(View.GONE)
             linearLayout_2.setVisibility(View.VISIBLE)
+            view_title.setText("บักทึนที่อยู่ปัจจุบัน")
         }
         view_btn_next_2.setOnClickListener {
             linearLayout_2.setVisibility(View.GONE)
             linearLayout_3.setVisibility(View.VISIBLE)
+            view_title.setText("บักทึกเบอร์โทรศัพท์")
         }
         view_btn_back_2.setOnClickListener {
             linearLayout_1.setVisibility(View.VISIBLE)
             linearLayout_2.setVisibility(View.GONE)
+            view_title.setText("บันทึกที่อยู่ตามสำเนาทะเบียนบ้าน")
         }
         view_btn_back_3.setOnClickListener {
             linearLayout_2.setVisibility(View.VISIBLE)
             linearLayout_3.setVisibility(View.GONE)
+            view_title.setText("บักทึนที่อยู่ปัจจุบัน")
         }
         linearLayout_1.setVisibility(View.VISIBLE)
 //        val mRootRef = FirebaseDatabase.getInstance().getReference()
