@@ -3,4 +3,17 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="human_resource">Human Resource</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="todo">TODO</string>
+    <string name="Work_experience">ประสบการณ์การทำงาน</string>
+    <string name="Expertise">ความชำนาญ</string>
+    <string name="membership_card">บัตรสมาชิกสภาการพยาบาล</string>
+    <string name="Professional_license">ใบประกอบวิชาชีพ</string>
+    <string name="Educational_background">ประวัติการศึกษา</string>
+    <string name="address">ที่อยู่</string>
+    <string name="information">ข้อมูลส่วนตัว</string>
+    <string name="name">พลเอกประยุทธ์ จันทร์โอชา</string>
 </resources>
