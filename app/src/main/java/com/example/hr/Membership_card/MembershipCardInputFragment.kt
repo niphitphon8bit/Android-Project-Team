@@ -61,6 +61,8 @@ class MembershipCardInputFragment : Fragment() {
             view_membership_id.setText(obj_hr_membership_card.membership_id)
             view_issue_date.setText(obj_hr_membership_card.issue_date)
             view_expiry_date.setText(obj_hr_membership_card.expiry_date)
+        }else{
+            btn_delete.setVisibility(View.GONE)
         }
 
         btn_save.setOnClickListener {
