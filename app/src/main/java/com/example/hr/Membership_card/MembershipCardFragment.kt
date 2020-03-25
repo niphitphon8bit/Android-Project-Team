@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hr.Address.AddressFragment
 import com.example.hr.Education.EducationInputFragment
 
 import com.example.hr.R
@@ -107,7 +108,6 @@ class MembershipCardFragment : Fragment() {
 
         }) // mMessagesRef.addValueEventListener
 
-
         val fm = fragmentManager
         val transaction : FragmentTransaction = fm!!.beginTransaction()
 
@@ -127,8 +127,24 @@ class MembershipCardFragment : Fragment() {
             fm.popBackStack("fragment_membership_card", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
 
-            return view
+        return view
+    }
+
+    fun newInstance(username:String): MembershipCardFragment {
+        val fragment = MembershipCardFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        if (bundle != null) {
+            account_username = bundle.getString("username").toString()
         }
+    }
 
 
 }

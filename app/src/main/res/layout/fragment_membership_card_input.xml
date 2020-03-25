@@ -48,7 +48,7 @@ tools:context=".Membership_card.MembershipCardInputFragment">
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/form"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
@@ -66,9 +66,10 @@ tools:context=".Membership_card.MembershipCardInputFragment">
 
         <EditText
             android:id="@+id/view_membership_name"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
@@ -85,9 +86,10 @@ tools:context=".Membership_card.MembershipCardInputFragment">
 
         <EditText
             android:id="@+id/view_membership_id"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
@@ -104,9 +106,10 @@ tools:context=".Membership_card.MembershipCardInputFragment">
 
         <EditText
             android:id="@+id/view_issue_date"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
@@ -123,9 +126,10 @@ tools:context=".Membership_card.MembershipCardInputFragment">
 
         <EditText
             android:id="@+id/view_expiry_date"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import com.example.hr.Address.AddressFragment
 import com.example.hr.Education.EducationFragment
@@ -28,7 +29,11 @@ class HomeFragment : Fragment() {
     lateinit var btn_membership_card : Button
     lateinit var btn_expertise : Button
     lateinit var btn_work_experience : Button
+    lateinit var textName : TextView
     private lateinit var load_fragment : Fragment
+
+    var account_username : String = ""
+    var account_name : String = ""
 
     /**
      * Function: onCreateView
@@ -51,6 +56,11 @@ class HomeFragment : Fragment() {
         btn_membership_card = view.findViewById<Button>(R.id.view_btn_membership) as Button
         btn_expertise = view.findViewById<Button>(R.id.view_btn_expertise) as Button
         btn_work_experience = view.findViewById<Button>(R.id.view_btn_work) as Button
+        textName = view.findViewById<TextView>(R.id.view_name_user)
+        // ---------------------------------------------------------------------------- //
+
+        // ---------------------------- Set value ------------------------------------ //
+        textName.text = account_name
         // ---------------------------------------------------------------------------- //
 
         btn_personal.setOnClickListener{
@@ -118,5 +128,22 @@ class HomeFragment : Fragment() {
     }
     // ---------------------------------------------------------------------------- //
 
+    fun newInstance(name:String ,username:String): HomeFragment {
+        val fragment = HomeFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        bundle.putString("name", name)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        if (bundle != null) {
+            account_username = bundle.getString("username").toString()
+            account_name = bundle.getString("name").toString()
+        }
+    }
 
 }
