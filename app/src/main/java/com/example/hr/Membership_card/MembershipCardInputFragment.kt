@@ -61,13 +61,15 @@ class MembershipCardInputFragment : Fragment() {
             view_membership_id.setText(obj_hr_membership_card.membership_id)
             view_issue_date.setText(obj_hr_membership_card.issue_date)
             view_expiry_date.setText(obj_hr_membership_card.expiry_date)
+        }else{
+            btn_delete.setVisibility(View.GONE)
         }
 
         btn_save.setOnClickListener {
             var check_insert = true
             if(view_membership_name.text.toString() == ""){
                 check_insert = false
-                Toast.makeText(activity!!.baseContext, "กรุณากรอกชื่อวิชาชีพ\n", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity!!.baseContext, "กรุณากรอกชื่อวิชาชีพ", Toast.LENGTH_SHORT).show()
             }else if(view_membership_id.text.toString() == ""){
                 check_insert = false
                 Toast.makeText(activity!!.baseContext, "กรุณากรอกเลขที่สมาชิกสภาวิชาชีพ", Toast.LENGTH_SHORT).show()
@@ -79,8 +81,9 @@ class MembershipCardInputFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "กรุณากรอกวันหมดอายุ", Toast.LENGTH_SHORT).show()
             }else if(check_insert == true){
                 if(Str_key == ""){
+                    var user =  obj_hr_membership_card.username
                     obj_hr_membership_card = hr_membership_card(
-                        obj_hr_membership_card.username,
+                        user,
                         view_membership_name.text.toString(),
                         view_membership_id.text.toString(),
                         view_issue_date.text.toString(),
@@ -113,7 +116,7 @@ class MembershipCardInputFragment : Fragment() {
 
                     Toast.makeText(activity!!.baseContext, "ลบสำเร็จ", Toast.LENGTH_SHORT).show()
                     val fm: FragmentManager = activity!!.getSupportFragmentManager()
-                    fm.popBackStack("MembershipCardInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    fm.popBackStack("_MembershipCardInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 })
             builder.setNegativeButton("ยกเลิก",
                 DialogInterface.OnClickListener { dialog, which ->
@@ -123,8 +126,8 @@ class MembershipCardInputFragment : Fragment() {
         }
 
         btn_back.setOnClickListener{
-            LoginManager.getInstance().logOut()
-            activity!!.supportFragmentManager.popBackStack()
+            val fm: FragmentManager = activity!!.getSupportFragmentManager()
+            fm.popBackStack("_MembershipCardInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
 
         return view
