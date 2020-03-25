@@ -7,19 +7,28 @@ android:layout_width="match_parent"
 android:layout_height="match_parent" android:background="@color/background"
 tools:context=".Membership_card.MembershipCardInputFragment">
 
-
-    <Button
-        android:id="@+id/button3"
+    <ImageButton
+        android:id="@+id/view_btn_delete"
         android:layout_width="34dp"
         android:layout_height="31dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/trash"
-
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@null"
+        android:src="@drawable/delete"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
+
+    <ImageButton
+        android:id="@+id/view_btn_back"
+        android:layout_width="34dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
     android:id="@+id/textView6"
     style="@android:style/Widget.Material.TextView.SpinnerItem"
     android:layout_width="wrap_content"
