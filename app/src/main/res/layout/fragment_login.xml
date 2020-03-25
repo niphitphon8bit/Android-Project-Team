@@ -9,30 +9,30 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/img_logo"
             android:layout_width="299dp"
             android:layout_height="154dp"
             android:layout_gravity="center"
-            android:layout_marginStart="56dp"
             android:contentDescription="@string/todo"
             android:src="@drawable/nursing_dashboard"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.154" />
+            app:layout_constraintVertical_bias="0.157" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="51dp"
-            android:layout_marginEnd="50dp"
             android:fontFamily="@font/kanit"
             android:gravity="center"
             android:text="@string/human_resource"
@@ -40,7 +40,7 @@
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.407" />
@@ -50,8 +50,6 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="56dp"
-            android:layout_marginEnd="55dp"
             android:background="@drawable/input_signin"
             android:drawablePadding="16dp"
             android:hint="@string/password"
@@ -62,7 +60,7 @@
             android:textColorHint="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.646" />
@@ -72,8 +70,6 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="56dp"
-            android:layout_marginEnd="55dp"
             android:background="@drawable/input_signin"
             android:drawablePadding="16dp"
             android:hint="@string/username"
@@ -84,7 +80,7 @@
             android:textColorHint="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.537" />
@@ -93,8 +89,6 @@
             android:id="@+id/view_btn_signin"
             android:layout_width="266dp"
             android:layout_height="54dp"
-            android:layout_marginStart="70dp"
-            android:layout_marginEnd="75dp"
             android:background="@drawable/btn_rounded"
             android:gravity="center"
             android:padding="14dp"
@@ -103,7 +97,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.818" />
