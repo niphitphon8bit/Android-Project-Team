@@ -32,6 +32,9 @@ class HomeFragment : Fragment() {
     lateinit var textName : TextView
     private lateinit var load_fragment : Fragment
 
+    var account_username : String = ""
+    var account_name : String = ""
+
     /**
      * Function: onCreateView
      * Author: Namchok Singhachai
@@ -57,7 +60,7 @@ class HomeFragment : Fragment() {
         // ---------------------------------------------------------------------------- //
 
         // ---------------------------- Set value ------------------------------------ //
-        textName.text = "นำโชค สิงหะชัย"
+        textName.text = account_name
         // ---------------------------------------------------------------------------- //
 
         btn_personal.setOnClickListener{
@@ -125,5 +128,22 @@ class HomeFragment : Fragment() {
     }
     // ---------------------------------------------------------------------------- //
 
+    fun newInstance(name:String ,username:String): HomeFragment {
+        val fragment = HomeFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        bundle.putString("name", name)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        if (bundle != null) {
+            account_username = bundle.getString("username").toString()
+            account_name = bundle.getString("name").toString()
+        }
+    }
 
 }
