@@ -56,20 +56,20 @@ class AddressFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_address, container, false)
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         val view_title = view.findViewById<TextView>(R.id.view_title)
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         val linearLayout_1 = view.findViewById<LinearLayout>(R.id.linearLayout_1)
         val linearLayout_2 = view.findViewById<LinearLayout>(R.id.linearLayout_2)
         val linearLayout_3 = view.findViewById<LinearLayout>(R.id.linearLayout_3)
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         val view_btn_next_1 = view.findViewById<Button>(R.id.view_btn_next_1)
         val view_btn_next_2 = view.findViewById<Button>(R.id.view_btn_next_2)
 
         val view_btn_back = view.findViewById<ImageButton>(R.id.view_btn_back)
         val view_btn_back_2 = view.findViewById<Button>(R.id.view_btn_back_2)
         val view_btn_back_3 = view.findViewById<Button>(R.id.view_btn_back_3)
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         val view_house_regis_address = view.findViewById<TextView>(R.id.view_house_regis_address)
         val view_house_regis_dist = view.findViewById<TextView>(R.id.view_house_regis_dist)
         val view_house_regis_amph = view.findViewById<TextView>(R.id.view_house_regis_amph)
@@ -86,15 +86,15 @@ class AddressFragment : Fragment() {
         val view_mobile_phone_number= view.findViewById<TextView>(R.id.view_mobile_phone_number)
         val view_work_phone_number= view.findViewById<TextView>(R.id.view_work_phone_number)
         val view_work_in_phone_number = view.findViewById<TextView>(R.id.view_work_in_phone_number)
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         val btn_back = view.findViewById(R.id.view_btn_back) as ImageButton
         val btn_save = view.findViewById(R.id.view_btn_save) as Button
-
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         view_btn_next_1.setOnClickListener {
             linearLayout_1.setVisibility(View.GONE)
             linearLayout_2.setVisibility(View.VISIBLE)
-            view_title.setText("บักทึนที่อยู่ปัจจุบัน")
+            view_title.setText("บักทึกที่อยู่ปัจจุบัน")
         }
         view_btn_next_2.setOnClickListener {
             linearLayout_2.setVisibility(View.GONE)
@@ -118,6 +118,7 @@ class AddressFragment : Fragment() {
         }
 
         linearLayout_1.setVisibility(View.VISIBLE)
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ดึงข้อมูลมาเช็ค
         account_username = "60160157"
@@ -125,7 +126,6 @@ class AddressFragment : Fragment() {
         val mMessagesRef = mRootRef.child("hr_address")
         mMessagesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
 
                 for (ds in dataSnapshot.children) {
                     val username = ds.child("username").getValue(String::class.java)!!
