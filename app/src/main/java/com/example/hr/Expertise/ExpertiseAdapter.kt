@@ -65,6 +65,7 @@ class ExpertiseAdapter (fragmentActivity: FragmentActivity, val dataSource: JSON
 
             val fm = thisActivity.supportFragmentManager
             val transaction: FragmentTransaction = fm!!.beginTransaction()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             val load_fragment = ExpertiseInputFragment().newInstance(key, username, title_name_th, title_name_en, text_th, text_en)
             transaction.replace(R.id.contentContainer, load_fragment,"_ExpertiseInputFragment")
             transaction.addToBackStack("_ExpertiseInputFragment")
