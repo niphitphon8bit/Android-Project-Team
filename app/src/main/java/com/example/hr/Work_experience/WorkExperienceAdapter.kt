@@ -50,9 +50,9 @@ class WorkExperienceAdapter (fragmentActivity: FragmentActivity, val dataSource:
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
         holder.Holder()
-        holder.rank.setText("1133")
-        holder.start_date.setText("113")
-        holder.end_date.setText("11")
+        holder.rank.setText(dataSource.getJSONObject(position).getString("position_work_name").toString() )
+        holder.start_date.setText(dataSource.getJSONObject(position).getString("start_date").toString() )
+        holder.end_date.setText(dataSource.getJSONObject(position).getString("end_date").toString() )
 
 //        holder.view_transaction_category.setText( dataSource.getJSONObject(position).getString("categories_name").toString() )
 //        holder.view_transaction_note.setText( dataSource.getJSONObject(position).getString("transaction_note").toString() )
