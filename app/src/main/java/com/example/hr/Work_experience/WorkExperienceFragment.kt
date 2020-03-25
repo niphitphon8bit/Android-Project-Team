@@ -128,7 +128,7 @@ class WorkExperienceFragment : Fragment() {
             val btn_back = view.findViewById(R.id.view_btn_back) as ImageButton
 
             btn_add!!.setOnClickListener{
-                val load_fragment = WorkExperienceInputFragment()
+                val load_fragment = WorkExperienceInputFragment().newInstance("insert","","","","","","")
                 transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
                 transaction.addToBackStack("WorkExperienceInputFragment")
