@@ -35,6 +35,18 @@ class MembershipCardInputFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_membership_card_input, container, false)
 
+        val view_membership_name = view.findViewById<TextView>(R.id.view_membership_name)
+        val view_membership_id = view.findViewById<TextView>(R.id.view_membership_id)
+        val view_issue_date= view.findViewById<TextView>(R.id.view_issue_date)
+        val view_expiry_date = view.findViewById<TextView>(R.id.view_expiry_date)
+
+        if(Str_key != "") {
+            view_membership_name.setText(obj_hr_membership_card.membership_name)
+            view_membership_id.setText(obj_hr_membership_card.membership_id)
+            view_issue_date.setText(obj_hr_membership_card.issue_date)
+            view_expiry_date.setText(obj_hr_membership_card.expiry_date)
+        }
+
         return view
     }
 
