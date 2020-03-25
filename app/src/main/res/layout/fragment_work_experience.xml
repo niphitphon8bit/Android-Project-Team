@@ -23,15 +23,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="110dp"/>
 
-<<<<<<< HEAD
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="400dp"
-        android:layout_marginTop="650dp"
-        android:src="@drawable/add_circle" />
-=======
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -42,7 +34,6 @@
         android:layout_marginLeft="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
->>>>>>> 8beacc133cd0d5ef14e4618ac0a4516af0779103
 
 
 </FrameLayout>
