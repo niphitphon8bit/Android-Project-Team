@@ -108,7 +108,6 @@ class MembershipCardFragment : Fragment() {
 
         }) // mMessagesRef.addValueEventListener
 
-
         val fm = fragmentManager
         val transaction : FragmentTransaction = fm!!.beginTransaction()
 
