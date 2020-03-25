@@ -128,11 +128,11 @@ class MembershipCardFragment : Fragment() {
             fm.popBackStack("fragment_membership_card", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
 
-            return view
-        }
+        return view
+    }
 
     fun newInstance(username:String): MembershipCardFragment {
-        val fragment = AddressFragment()
+        val fragment = MembershipCardFragment()
         val bundle = Bundle()
         bundle.putString("username", username)
         fragment.setArguments(bundle)
