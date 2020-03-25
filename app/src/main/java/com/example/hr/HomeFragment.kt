@@ -59,6 +59,7 @@ class HomeFragment : Fragment() {
         // ---------------------------- Set value ------------------------------------ //
         textName.text = "นำโชค สิงหะชัย"
         // ---------------------------------------------------------------------------- //
+
         btn_personal.setOnClickListener{
             load_fragment = PersonalFragment()
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
