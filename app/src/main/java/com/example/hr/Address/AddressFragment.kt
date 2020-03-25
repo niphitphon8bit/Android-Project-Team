@@ -125,12 +125,9 @@ class AddressFragment : Fragment() {
         val mMessagesRef = mRootRef.child("hr_address")
         mMessagesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val list = JSONArray()
+
 
                 for (ds in dataSnapshot.children) {
-
-//                    val jObject = JSONObject()
-
                     val username = ds.child("username").getValue(String::class.java)!!
                     val house_regis_address = ds.child("house_regis_address").getValue(String::class.java)!!
                     val house_regis_dist = ds.child("house_regis_dist").getValue(String::class.java)!!
@@ -148,24 +145,7 @@ class AddressFragment : Fragment() {
                     val work_in_phone_number   = ds.child("work_in_phone_number").getValue(String::class.java)!!
 
                     if (username == account_username) {
-//                        jObject.put("key", ds.key)
-//                        jObject.put("username", username)
-//                        jObject.put("house_regis_address", house_regis_address)
-//                        jObject.put("house_regis_dist", house_regis_dist)
-//                        jObject.put("house_regis_amph", house_regis_amph)
-//                        jObject.put("house_regis_province", house_regis_province)
-//                        jObject.put("house_regis_zipcode", house_regis_zipcode)
-//                        jObject.put("house_cur_address", house_cur_address)
-//                        jObject.put("house_cur_dist", house_cur_dist)
-//                        jObject.put("house_cur_amph", house_cur_amph)
-//                        jObject.put("house_cur_province", house_cur_province)
-//                        jObject.put("house_cur_zipcode", house_cur_zipcode)
-//                        jObject.put("house_phone_number", house_phone_number)
-//                        jObject.put("mobile_phone_number", mobile_phone_number)
-//                        jObject.put("work_phone_number", work_phone_number)
-//                        jObject.put("work_in_phone_number", work_in_phone_number)
-//
-//                        list.put(jObject)
+
                         Str_key = ds.key.toString()
                         obj_hr_address = hr_address(
                             account_username,
