@@ -8,10 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hr.Membership_card.MembershipCardInputFragment
@@ -53,6 +50,33 @@ class AddressFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_address, container, false)
 
+        val linearLayout_1 = view.findViewById<LinearLayout>(R.id.linearLayout_1)
+        val linearLayout_2 = view.findViewById<LinearLayout>(R.id.linearLayout_2)
+        val linearLayout_3 = view.findViewById<LinearLayout>(R.id.linearLayout_3)
+
+        val view_btn_next_1 = view.findViewById<Button>(R.id.view_btn_next_1)
+        val view_btn_next_2 = view.findViewById<Button>(R.id.view_btn_next_2)
+
+        val view_btn_back_2 = view.findViewById<Button>(R.id.view_btn_back_2)
+        val view_btn_back_3 = view.findViewById<Button>(R.id.view_btn_back_3)
+
+        view_btn_next_1.setOnClickListener {
+            linearLayout_1.setVisibility(View.GONE)
+            linearLayout_2.setVisibility(View.VISIBLE)
+        }
+        view_btn_next_2.setOnClickListener {
+            linearLayout_2.setVisibility(View.GONE)
+            linearLayout_3.setVisibility(View.VISIBLE)
+        }
+        view_btn_back_2.setOnClickListener {
+            linearLayout_1.setVisibility(View.VISIBLE)
+            linearLayout_2.setVisibility(View.GONE)
+        }
+        view_btn_back_3.setOnClickListener {
+            linearLayout_2.setVisibility(View.VISIBLE)
+            linearLayout_3.setVisibility(View.GONE)
+        }
+        linearLayout_1.setVisibility(View.VISIBLE)
 //        val mRootRef = FirebaseDatabase.getInstance().getReference()
 //        val mMessagesRef = mRootRef.child("hr_address")
 //
