@@ -21,7 +21,7 @@
         >
 
         <TextView
-            android:id="@+id/view_professional_name"
+            android:id="@+id/view_membership_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -39,8 +39,8 @@
             android:layout_marginTop="4dp"
             android:text="date"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/view_professional_name"
-            app:layout_constraintTop_toTopOf="@+id/view_professional_name" />
+            app:layout_constraintStart_toEndOf="@+id/view_membership_name"
+            app:layout_constraintTop_toTopOf="@+id/view_membership_name" />
 
         <TextView
             android:id="@+id/textView"
@@ -70,8 +70,8 @@
             android:layout_marginBottom="16dp"
             android:text="Member ID"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/view_professional_name"
-            app:layout_constraintTop_toBottomOf="@+id/view_professional_name" />
+            app:layout_constraintStart_toStartOf="@+id/view_membership_name"
+            app:layout_constraintTop_toBottomOf="@+id/view_membership_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
