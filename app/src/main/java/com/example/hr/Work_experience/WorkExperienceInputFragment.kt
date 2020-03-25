@@ -28,4 +28,9 @@ class WorkExperienceInputFragment : Fragment() {
         return view
     }
 
+    fun newInstance(pos_work:String, pos_manager:String, seq_pos:String, start_pos:String, end_pos:String, note:String){
+
+    }
+
+
 }
