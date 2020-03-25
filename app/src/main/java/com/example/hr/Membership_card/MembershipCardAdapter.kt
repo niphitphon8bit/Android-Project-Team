@@ -32,7 +32,7 @@ class MembershipCardAdapter (fragmentActivity: FragmentActivity, val dataSource:
         fun Holder(){
             layout = View.findViewById<View>(R.id.recy_membership_card_layout) as LinearLayout
             view_professional_name = View.findViewById<View>(R.id.view_professional_name) as TextView
-            view_membership_id = View.findViewById<View>(R.id.view_member_number) as TextView
+            view_membership_id = View.findViewById<View>(R.id.view_membership_id) as TextView
             view_issue_date = View.findViewById<View>(R.id.view_issue_date) as TextView
             view_expiry_date = View.findViewById<View>(R.id.view_expiry_date) as TextView
         }
