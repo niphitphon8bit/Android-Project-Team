@@ -16,16 +16,16 @@ import com.example.hr.R
  */
 class MembershipCardInputFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var obj_hr_work_experience : hr_work_experience
+    private lateinit var obj_hr_membership_card : hr_membership_card
 
     var Str_key = "" // key obj_hr_work_experience from firebase
 
-    data class hr_work_experience(
+    data class hr_membership_card (
         var username: String? = "",
         var professional_name: String? = "",
         var member_number: String? = "",
         var issue_date: String? = "",
-        var expiration_date: String? = ""
+        var expiry_date: String? = ""
     )
 
     override fun onCreateView(
@@ -39,15 +39,15 @@ class MembershipCardInputFragment : Fragment() {
     }
 
 
-    fun newInstance(key: String, username:String, professional_name: String, member_number:String, issue_date:String, expiration_date:String): MembershipCardInputFragment {
+    fun newInstance(key: String, username:String, professional_name: String, member_id:String, issue_date:String, expiry_date:String): MembershipCardInputFragment {
         val fragment = MembershipCardInputFragment()
         val bundle = Bundle()
         bundle.putString("key", key)
         bundle.putString("username", username)
         bundle.putString("professional_name", professional_name)
-        bundle.putString("member_number", member_number)
+        bundle.putString("member_id", member_id)
         bundle.putString("issue_date", issue_date)
-        bundle.putString("expiration_date", expiration_date)
+        bundle.putString("expiry_date", expiry_date)
         fragment.setArguments(bundle)
         return fragment
     }
@@ -57,12 +57,12 @@ class MembershipCardInputFragment : Fragment() {
 
         val bundle = arguments
         if (bundle != null) {
-            obj_hr_work_experience = hr_work_experience(
+            obj_hr_membership_card = hr_membership_card(
                 bundle.getString("username").toString(),
                 bundle.getString("professional_name").toString(),
-                bundle.getString("member_number").toString(),
+                bundle.getString("member_id").toString(),
                 bundle.getString("issue_date").toString(),
-                bundle.getString("expiration_date").toString()
+                bundle.getString("expiry_date").toString()
             )
             Str_key = bundle.getString("key").toString()
         }

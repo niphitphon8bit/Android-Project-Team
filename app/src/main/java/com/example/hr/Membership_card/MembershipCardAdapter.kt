@@ -2,8 +2,6 @@ package com.example.hr.Membership_card
 
 import com.example.hr.R
 
-package com.example.projectmymoney.adapter
-
 import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -75,10 +73,6 @@ class MembershipCardAdapter (fragmentActivity: FragmentActivity, val dataSource:
         }
 
     }
-
-
-
-
 
 }
 
