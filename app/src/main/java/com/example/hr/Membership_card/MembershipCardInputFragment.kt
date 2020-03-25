@@ -105,7 +105,7 @@ class MembershipCardInputFragment : Fragment() {
         btn_delete.setOnClickListener{
             val builder: AlertDialog.Builder = AlertDialog.Builder(this.context)
             builder.setMessage("ต้องการลบหรือไม่?")
-            builder.setPositiveButton("Delete",
+            builder.setPositiveButton("ลบ",
                 DialogInterface.OnClickListener { dialog, id ->
                     val mMessagesRef = mRootRef.child("hr_membership_card").child(Str_key)
 
