@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -40,6 +42,9 @@ class MembershipCardInputFragment : Fragment() {
         val view_issue_date= view.findViewById<TextView>(R.id.view_issue_date)
         val view_expiry_date = view.findViewById<TextView>(R.id.view_expiry_date)
 
+        val btn_back = view.findViewById(R.id.view_btn_back) as ImageButton
+        val btn_delete = view.findViewById(R.id.view_btn_delete) as ImageButton
+        val btn_save = view.findViewById(R.id.view_btn_save) as Button
         if(Str_key != "") {
             view_membership_name.setText(obj_hr_membership_card.membership_name)
             view_membership_id.setText(obj_hr_membership_card.membership_id)

@@ -34,9 +34,11 @@ tools:context=".Membership_card.MembershipCardInputFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="362dp"
+        android:layout_width="match_parent"
         android:layout_height="386dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,17 +129,19 @@ tools:context=".Membership_card.MembershipCardInputFragment">
 
     </LinearLayout>
 
-<Button
-    android:id="@+id/button4"
-    android:layout_width="365dp"
-    android:layout_height="wrap_content"
-    android:text="บันทึก"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    android:background="@drawable/submit_btn"
-    android:textColor="#fff"
-    app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+    <Button
+        android:id="@+id/view_btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/submit_btn"
+        android:text="บันทึก"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
