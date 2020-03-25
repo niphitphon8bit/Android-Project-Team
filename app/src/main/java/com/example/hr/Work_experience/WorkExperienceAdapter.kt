@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
@@ -21,10 +22,17 @@ class WorkExperienceAdapter (fragmentActivity: FragmentActivity, val dataSource:
     class Holder(view : View) : RecyclerView.ViewHolder(view) {
         private val View = view
         lateinit var layout : LinearLayout
+        lateinit var rank:TextView
+        lateinit var start_date:TextView
+        lateinit var end_date:TextView
 //        lateinit var view_transaction_category: TextView
 
 
         fun Holder(){
+
+            rank = View.findViewById(R.id.position) as TextView
+            start_date = View.findViewById(R.id.start_date) as TextView
+            end_date = View.findViewById(R.id.end_date) as TextView
 //            layout = View.findViewById<View>(R.id.recyview_layout) as LinearLayout
 //            view_transaction_category = View.findViewById<View>(R.id.view_transaction_category) as TextView
         }
@@ -42,12 +50,30 @@ class WorkExperienceAdapter (fragmentActivity: FragmentActivity, val dataSource:
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
         holder.Holder()
+        holder.rank.setText("1133")
+        holder.start_date.setText("113")
+        holder.end_date.setText("11")
 
 //        holder.view_transaction_category.setText( dataSource.getJSONObject(position).getString("categories_name").toString() )
 //        holder.view_transaction_note.setText( dataSource.getJSONObject(position).getString("transaction_note").toString() )
 
 
         holder.layout.setOnClickListener {
+            var pos_work = dataSource.getJSONObject(position).getString("55").toString()
+            var pos_manager = dataSource.getJSONObject(position).getString("55").toString()
+            var seq_pos = dataSource.getJSONObject(position).getString("55").toString()
+            var start_pos = dataSource.getJSONObject(position).getString("55").toString()
+            var end_pos = dataSource.getJSONObject(position).getString("55").toString()
+            var note = dataSource.getJSONObject(position).getString("55").toString()
+
+            val fm = thisActivity.supportFragmentManager
+            val transaction: FragmentTransaction = fm!!.beginTransaction()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
+            val load_fragment = WorkExperienceInputFragment().newInstance(pos_work, pos_manager, seq_pos, start_pos, end_pos, note) as WorkExperienceInputFragment
+            transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
+            transaction.addToBackStack("WorkExperienceInputFragment")
+            transaction.commit()
+
 //            var key = dataSource.getJSONObject(position).getString("key").toString()
 //            var categories_name = dataSource.getJSONObject(position).getString("categories_name").toString()
 //            var categories_type = dataSource.getJSONObject(position).getString("categories_type").toString()
