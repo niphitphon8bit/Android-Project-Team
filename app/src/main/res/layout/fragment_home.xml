@@ -7,134 +7,155 @@
     android:background="@color/background">
 
     <Button
-        android:id="@+id/view_btn_license"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_rounded_main_menu"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center"
-        android:text="@string/Professional_license"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_btn_education" />
-
-    <Button
-        android:id="@+id/view_btn_address"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_rounded_main_menu"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center"
-        android:text="@string/address"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_btn_personal" />
-
-    <Button
-        android:id="@+id/view_btn_work"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_rounded_main_menu"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center"
-        android:text="@string/Work_experience"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_btn_expertise" />
-
-    <Button
         android:id="@+id/view_btn_personal"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
         android:text="@string/information"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_name_user" />
-
-    <Button
-        android:id="@+id/view_btn_education"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/btn_rounded_main_menu"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center"
-        android:text="@string/Educational_background"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_btn_address" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.361" />
 
     <Button
         android:id="@+id/view_btn_expertise"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
         android:text="@string/Expertise"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_btn_membership" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.84" />
+
+    <Button
+        android:id="@+id/view_btn_address"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_rounded_main_menu"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/address"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.455" />
+
+    <Button
+        android:id="@+id/view_btn_license"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_rounded_main_menu"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/Professional_license"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
 
     <Button
         android:id="@+id/view_btn_membership"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:background="@drawable/btn_rounded_main_menu"
         android:foregroundGravity="center_horizontal"
         android:gravity="center"
         android:text="@string/membership_card"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_btn_license" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74" />
+
+    <Button
+        android:id="@+id/view_btn_work"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_rounded_main_menu"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/Work_experience"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.938" />
+
+    <Button
+        android:id="@+id/view_btn_education"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_rounded_main_menu"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center"
+        android:text="@string/Educational_background"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.547" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="125dp"
         android:layout_height="104dp"
-        android:layout_marginEnd="143dp"
         android:contentDescription="@string/todo"
         android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
 
     <TextView
         android:id="@+id/view_name_user"
         android:layout_width="236dp"
         android:layout_height="43dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="36dp"
         android:text="@string/name"
         android:textColor="@android:color/white"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.768"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.229" />
+
+    <TextView
+        android:id="@+id/textMenu"
+        android:layout_width="72dp"
+        android:layout_height="28dp"
+        android:text="@string/mainmenu"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.301" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
