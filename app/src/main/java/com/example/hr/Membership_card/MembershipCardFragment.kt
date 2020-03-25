@@ -6,21 +6,81 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.hr.R
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import org.json.JSONArray
+import org.json.JSONObject
 
 /**
  * A simple [Fragment] subclass.
  */
 class MembershipCardFragment : Fragment() {
 
+    private lateinit var recyclerView: RecyclerView
+    var Username : String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_membership_card, container, false)
-    }
+        val view =  inflater.inflate(R.layout.fragment_membership_card, container, false)
+
+        val mRootRef = FirebaseDatabase.getInstance().reference
+        val mMessagesRef = mRootRef.child("transaction")
+
+        mMessagesRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                val list = JSONArray()
+                recyclerView = view.findViewById(R.id.recyLayout)
+
+                val layoutManager: RecyclerView.LayoutManager =
+                    LinearLayoutManager(activity!!.baseContext)
+                recyclerView.layoutManager = layoutManager
+
+                for (ds in dataSnapshot.children) {
+
+                    val jObject = JSONObject()
+
+                    val username = ds.child("username").getValue(String::class.java)!!
+                    val professional_name = ds.child("professional_name").getValue(String::class.java)!!
+                    val membership_id = ds.child("membership_id").getValue(String::class.java)!!
+                    val issue_date = ds.child("issue_date").getValue(String::class.java)!!
+                    val expiry_date = ds.child("expiry_date").getValue(String::class.java)!!
+
+                    if (username == Username) {
+                        jObject.put("key", ds.key)
+                        jObject.put("username", username)
+                        jObject.put("professional_name", professional_name)
+                        jObject.put("membership_id", membership_id)
+                        jObject.put("issue_date", issue_date)
+                        jObject.put("expiry_date", expiry_date)
+
+                        list.put(jObject)
+                    }
+
+                }
+
+                val adapter = MembershipCardAdapter(activity!!, list, Username)
+
+                recyclerView.adapter = adapter
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+            return view
+        }
 
 
 }
