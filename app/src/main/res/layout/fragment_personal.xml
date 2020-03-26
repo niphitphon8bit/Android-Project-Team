@@ -39,15 +39,14 @@
 
     <ScrollView
         android:id="@+id/scroll1"
-        android:layout_width="365dp"
-        android:layout_height="600dp"
-        android:visibility="gone"
+        android:layout_width="360dp"
+        android:layout_height="538dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.721">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout_1"
@@ -121,7 +120,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -141,7 +140,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <LinearLayout
@@ -185,7 +184,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -205,7 +204,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -225,7 +224,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -245,7 +244,7 @@
                 android:layout_marginRight="20dp"
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <Button
@@ -264,15 +263,14 @@
 
     <ScrollView
         android:id="@+id/scroll2"
-        android:layout_width="365dp"
-        android:layout_height="600dp"
+        android:layout_width="360dp"
+        android:layout_height="538dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.721">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout_2"
@@ -299,7 +297,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -320,7 +318,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -341,7 +339,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -362,7 +360,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -383,7 +381,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -404,7 +402,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -425,7 +423,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <TextView
@@ -446,7 +444,7 @@
                 android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
-                android:padding="12dp"
+                android:padding="10dp"
                 android:text="" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -490,16 +488,17 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_3"
-        android:layout_width="365dp"
-        android:layout_height="499dp"
+        android:layout_width="360dp"
+        android:layout_height="481dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431">
+        app:layout_constraintVertical_bias="0.461">
 
         <TextView
             android:id="@+id/citizen_id"
@@ -520,7 +519,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -543,7 +542,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -566,7 +565,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -589,7 +588,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -612,7 +611,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -655,16 +654,16 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_4"
-        android:layout_width="365dp"
-        android:layout_height="596dp"
+        android:layout_width="360dp"
+        android:layout_height="547dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777">
+        app:layout_constraintVertical_bias="0.603">
 
         <TextView
             android:id="@+id/email"
@@ -685,7 +684,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor,TextFields" />
 
@@ -708,7 +707,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -731,7 +730,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -754,7 +753,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -777,7 +776,7 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
@@ -800,25 +799,40 @@
             android:background="@drawable/input"
             android:ems="10"
             android:inputType="text"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text=""
             tools:ignore="LabelFor" />
 
         <Button
-            android:id="@+id/view_btn_save"
-            android:layout_width="match_parent"
+            android:id="@+id/view_btn_back_4"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_gravity="left"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/submit_btn"
-            android:text="@string/save"
+            android:text="@string/back"
             android:textColor="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/view_btn_save"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:background="@drawable/submit_btn"
+        android:text="@string/save"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
