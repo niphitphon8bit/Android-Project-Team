@@ -121,7 +121,6 @@ class AddressFragment : Fragment() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ดึงข้อมูลมาเช็ค
-        account_username = "60160157"
         val mRootRef = FirebaseDatabase.getInstance().getReference()
         val mMessagesRef = mRootRef.child("hr_address")
         mMessagesRef.addValueEventListener(object : ValueEventListener {

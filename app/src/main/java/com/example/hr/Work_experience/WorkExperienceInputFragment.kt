@@ -59,7 +59,7 @@ class WorkExperienceInputFragment : Fragment() {
         var back_btn:ImageButton = view.findViewById(R.id.btn_back)
 
         val mRootRef = FirebaseDatabase.getInstance().getReference()
-        val mMessagesRef = mRootRef.child("hr_experience")
+        val mMessagesRef = mRootRef.child("hr_work_experience")
 
 
         if(Str_key == ""){
@@ -67,6 +67,15 @@ class WorkExperienceInputFragment : Fragment() {
             delete_btn.setVisibility(View.GONE)
         }else{
             header.setText("แก้ไขข้อมูลประสบการณ์")
+
+            pos_work.setText(obj_work_exp.position_work_name)
+            pos_manager.setText(obj_work_exp.position_manage_name)
+            seq_pos.setText(obj_work_exp.position_level)
+            manage_name.setText(obj_work_exp.manage_name)
+            place.setText(obj_work_exp.place)
+            start_pos.setText(obj_work_exp.start_date)
+            end_pos.setText(obj_work_exp.end_date)
+            note.setText(obj_work_exp.text_th)
         }
 
         submit_btn.setOnClickListener {
@@ -105,7 +114,7 @@ class WorkExperienceInputFragment : Fragment() {
             builder.setMessage("ต้องการลบหรือไม่?")
             builder.setPositiveButton("ลบ",
                 DialogInterface.OnClickListener { dialog, id ->
-                    val mMessagesRef = mRootRef.child("hr_experience").child(Str_key)
+                    val mMessagesRef = mRootRef.child("hr_work_experience").child(Str_key)
 
                     mMessagesRef.setValue(null)
 
@@ -162,7 +171,7 @@ class WorkExperienceInputFragment : Fragment() {
                 bundle.getString("place").toString(),
                 bundle.getString("start_date").toString(),
                 bundle.getString("end_date").toString(),
-                bundle.getString("text_th ").toString()
+                bundle.getString("text_th").toString()
             )
             Str_key = bundle.getString("key").toString()
         }

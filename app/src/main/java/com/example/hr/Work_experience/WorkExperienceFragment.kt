@@ -31,21 +31,8 @@ class WorkExperienceFragment : Fragment() {
 
         private lateinit var recyclerView: RecyclerView
 
-        private lateinit var obj_hr_work_experience : hr_work_experience
         var account_username : String = ""
         var Str_key = "" // key obj_hr_work_experience from firebase
-
-        data class hr_work_experience (
-            var username: String? = "",
-            var position_work_name : String? = "",
-            var position_manage_name : String? = "",
-            var position_level : String? = "",
-            var manage_name : String? = "",
-            var place  : String? = "",
-            var start_date  : String? = "",
-            var end_date  : String? = "",
-            var text_th  : String? = ""
-        )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -61,6 +48,10 @@ class WorkExperienceFragment : Fragment() {
                 val list = JSONArray()
                 recyclerView = view.findViewById(R.id.recyLayout)
 
+                val layoutManager: RecyclerView.LayoutManager =
+                    LinearLayoutManager(activity!!.baseContext)
+                recyclerView.layoutManager = layoutManager
+
                 for (ds in dataSnapshot.children) {
 
                     val jObject = JSONObject()
@@ -73,8 +64,7 @@ class WorkExperienceFragment : Fragment() {
                     val place = ds.child("place").getValue(String::class.java)!!
                     val start_date = ds.child("start_date").getValue(String::class.java)!!
                     val end_date = ds.child("end_date").getValue(String::class.java)!!
-                    val text_th = ds.child("text_th ").getValue(String::class.java)!!
-
+                    val text_th = ds.child("text_th").getValue(String::class.java)!!
 
                     if (username == account_username) {
                         jObject.put("key", ds.key)
@@ -89,7 +79,6 @@ class WorkExperienceFragment : Fragment() {
                         jObject.put("text_th", text_th)
 
                         list.put(jObject)
-
                     }
                 }
 
