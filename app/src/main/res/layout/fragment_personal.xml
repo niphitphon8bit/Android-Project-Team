@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".Personal.PersonalFragment">
-
-
     <ImageButton
         android:id="@+id/view_btn_back"
         android:layout_width="34dp"
@@ -177,7 +175,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/view_house_regis_province"
+                android:id="@+id/text_name_eng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -197,7 +195,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/view_house_regis_zipcode"
+                android:id="@+id/text_lastname_eng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
