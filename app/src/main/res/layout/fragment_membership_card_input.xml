@@ -74,6 +74,7 @@ tools:context=".Membership_card.MembershipCardInputFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -83,7 +84,6 @@ tools:context=".Membership_card.MembershipCardInputFragment">
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:text="เลขที่สมาชิกสภาวิชาชีพ"
-            android:inputType="textPersonName"
             android:textSize="20dp" />
 
         <EditText

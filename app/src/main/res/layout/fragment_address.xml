@@ -65,6 +65,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -85,6 +86,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -105,6 +107,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -125,6 +128,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -144,6 +148,7 @@ tools:context=".Address.AddressFragment">
             android:layout_marginRight="20dp"
             android:background="@drawable/input"
             android:ems="10"
+            android:inputType="textPersonName"
             android:padding="12dp"
             android:text="" />
 
@@ -205,6 +210,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -225,6 +231,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -245,6 +252,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
 
         <TextView
@@ -264,6 +272,7 @@ tools:context=".Address.AddressFragment">
             android:layout_marginRight="20dp"
             android:background="@drawable/input"
             android:ems="10"
+            android:inputType="textPersonName"
             android:padding="12dp"
             android:text="" />
 
@@ -285,6 +294,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -354,6 +364,7 @@ tools:context=".Address.AddressFragment">
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/input"
+            android:inputType="textPersonName"
             android:ems="10"
             android:padding="12dp"
             android:text="" />
@@ -374,6 +385,7 @@ tools:context=".Address.AddressFragment">
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/input"
+            android:inputType="textPersonName"
             android:ems="10"
             android:padding="12dp"
             android:text="" />
@@ -394,6 +406,7 @@ tools:context=".Address.AddressFragment">
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/input"
+            android:inputType="textPersonName"
             android:ems="10"
             android:padding="12dp"
             android:text="" />
@@ -416,6 +429,7 @@ tools:context=".Address.AddressFragment">
             android:background="@drawable/input"
             android:ems="10"
             android:padding="12dp"
+            android:inputType="textPersonName"
             android:text="" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
