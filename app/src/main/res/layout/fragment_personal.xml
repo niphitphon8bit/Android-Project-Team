@@ -39,9 +39,8 @@
 
     <ScrollView
         android:id="@+id/scroll1"
-        android:layout_width="363dp"
-        android:layout_height="612dp"
-
+        android:layout_width="365dp"
+        android:layout_height="600dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -265,8 +264,8 @@
 
     <ScrollView
         android:id="@+id/scroll2"
-        android:layout_width="364dp"
-        android:layout_height="604dp"
+        android:layout_width="365dp"
+        android:layout_height="600dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -491,7 +490,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_3"
-        android:layout_width="384dp"
+        android:layout_width="365dp"
         android:layout_height="499dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
@@ -500,7 +499,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497">
+        app:layout_constraintVertical_bias="0.431">
 
         <TextView
             android:id="@+id/citizen_id"
@@ -656,7 +655,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_4"
-        android:layout_width="373dp"
+        android:layout_width="365dp"
         android:layout_height="596dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
@@ -665,7 +664,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792">
+        app:layout_constraintVertical_bias="0.777">
 
         <TextView
             android:id="@+id/email"
