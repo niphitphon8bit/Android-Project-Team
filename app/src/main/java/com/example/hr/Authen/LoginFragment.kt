@@ -140,19 +140,19 @@ class LoginFragment : Fragment() {
 //            builder.show()
 
 
-                })
-            builder.setNegativeButton("ลงทะเบียน",
-                DialogInterface.OnClickListener { dialog, which ->
-                    obj_hr_account = hr_account(
-                        view_input_username.text.toString(),
-                        view_input_password.text.toString(),
-                        view_input_username.text.toString()
-                    )
-                    mMessagesRef.push().setValue(obj_hr_account)
-                    Toast.makeText(context,"สมัครสำเร็จ!", Toast.LENGTH_SHORT).show()
-                })
-            builder.show()
-
+//                })
+//            builder.setNegativeButton("ลงทะเบียน",
+//                DialogInterface.OnClickListener { dialog, which ->
+//                    obj_hr_account = hr_account(
+//                        view_input_username.text.toString(),
+//                        view_input_password.text.toString(),
+//                        view_input_username.text.toString()
+//                    )
+//                    mMessagesRef.push().setValue(obj_hr_account)
+//                    Toast.makeText(context,"สมัครสำเร็จ!", Toast.LENGTH_SHORT).show()
+//                })
+//            builder.show()
+//
         }
         // ---------------------------------------------------------------------------- //
 
