@@ -80,8 +80,6 @@ class WorkExperienceInputFragment : Fragment() {
 
         submit_btn.setOnClickListener {
             if(Str_key == ""){
-                var user =  obj_work_exp.username
-                obj_work_exp.username = user
                 obj_work_exp.position_work_name  = pos_work.text.toString()
                 obj_work_exp.position_manage_name  = pos_manager.text.toString()
                 obj_work_exp.position_level = seq_pos.text.toString()
@@ -175,6 +173,7 @@ class WorkExperienceInputFragment : Fragment() {
                 bundle.getString("text_th").toString()
             )
             Str_key = bundle.getString("key").toString()
+
         }
     }
 
