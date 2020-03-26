@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Personal.PersonalFragment"
-    android:background="@color/background" >
+    android:background="@color/background"
+    tools:context=".Personal.PersonalFragment">
 
 
     <ImageButton
@@ -14,14 +13,14 @@
         android:layout_width="34dp"
         android:layout_height="31dp"
         android:background="@null"
+        android:contentDescription="@string/todo"
         android:src="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037"
-        android:contentDescription="@string/todo" />
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
         android:id="@+id/view_title_personal"
@@ -32,19 +31,21 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view_btn_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
     <ScrollView
         android:id="@+id/scroll1"
+        android:layout_width="363dp"
+        android:layout_height="612dp"
+
         android:visibility="gone"
-        android:layout_width="360dp"
-        android:layout_height="645dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.721">
@@ -255,6 +256,7 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/submit_btn"
                 android:text="ถัดไป"
                 android:textColor="#fff" />
@@ -263,12 +265,12 @@
 
     <ScrollView
         android:id="@+id/scroll2"
+        android:layout_width="364dp"
+        android:layout_height="604dp"
         android:visibility="gone"
-        android:layout_width="360dp"
-        android:layout_height="645dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.721">
@@ -295,11 +297,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/province"
@@ -316,11 +318,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/dob"
@@ -337,11 +339,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/blood_type"
@@ -358,11 +360,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/religion"
@@ -379,11 +381,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/nationality"
@@ -400,11 +402,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/race"
@@ -421,11 +423,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/maritual_status"
@@ -442,16 +444,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:autofillHints=""
                 android:background="@drawable/input"
                 android:ems="10"
                 android:padding="12dp"
-                android:text=""
-                android:autofillHints="" />
+                android:text="" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
                 <Button
                     android:id="@+id/view_btn_next_2"
@@ -488,17 +491,16 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_3"
-        android:visibility="gone"
-        android:layout_width="362dp"
-        android:layout_height="512dp"
+        android:layout_width="384dp"
+        android:layout_height="499dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.399">
+        app:layout_constraintVertical_bias="0.497">
 
         <TextView
             android:id="@+id/citizen_id"
@@ -654,16 +656,16 @@
 
     <LinearLayout
         android:id="@+id/linearLayout_4"
-        android:layout_width="364dp"
-        android:layout_height="604dp"
+        android:layout_width="373dp"
+        android:layout_height="596dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58">
+        app:layout_constraintVertical_bias="0.792">
 
         <TextView
             android:id="@+id/email"
@@ -808,9 +810,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:layout_marginTop="15dp"
             android:background="@drawable/submit_btn"
             android:text="@string/save"
             android:textColor="#fff"
