@@ -74,6 +74,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/input"
+                    android:padding="5dp"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -93,11 +94,12 @@
 
                 <TextView
                     android:id="@+id/text_prefix"
-                    android:layout_width="0dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1"
+                    android:background="@drawable/input"
+                    android:padding="5dp"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -157,11 +159,12 @@
 
                 <TextView
                     android:id="@+id/text_prefix_eng"
-                    android:layout_width="0dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1"
+                    android:background="@drawable/input"
+                    android:padding="5dp"
                     android:textSize="18sp" />
             </LinearLayout>
 

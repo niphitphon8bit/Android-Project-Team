@@ -1,5 +1,7 @@
 package com.example.hr.Personal
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -60,13 +62,30 @@ class PersonalFragment : Fragment() {
 
     var Str_key = "" // key obj_hr_work_experience from firebase
     private lateinit var obj_hr_pesonal : hr_personal
+    private lateinit var account_username : String
 
+    fun newInstance(username:String): PersonalFragment {
+        val fragment = PersonalFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        fragment.arguments = bundle
+        return fragment
+    }
+
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val bundle = arguments
+        if (bundle != null) {
+            account_username = bundle.getString("username").toString()
+        }
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_personal, container, false)
+
+        var gender = ""
 
         // --------------------- Set variable form view ------------------------------- //
         val ScrollView_1 = view.findViewById<ScrollView>(R.id.scroll1)
@@ -143,7 +162,7 @@ class PersonalFragment : Fragment() {
         val text_province  = view.findViewById<EditText>(R.id.text_province)
         val text_dob = view.findViewById<EditText>(R.id.text_dob)
         val text_blood_type  = view.findViewById<EditText>(R.id.text_blood_type)
-        val text_religion  = view.findViewById<EditText>(R.id.religion)
+        val text_religion  = view.findViewById<EditText>(R.id.text_religion)
         val text_nationality  = view.findViewById<EditText>(R.id.text_nationality)
         val text_race  = view.findViewById<EditText>(R.id.text_race)
         val text_maritual_status  = view.findViewById<EditText>(R.id.text_maritual_status)
@@ -162,10 +181,49 @@ class PersonalFragment : Fragment() {
         val text_interest_in  = view.findViewById<EditText>(R.id.text_interest_in)
         // ---------------------------------------------------------------------------- //
 
+        text_prefix_th.setOnClickListener{
+            // Late initialize an alert dialog object
+            lateinit var dialog: AlertDialog
+
+            // Initialize an array of colors
+            val array = arrayOf("ไม่ระบุ", "ชาย", "หญิง")
+
+            // Initialize a new instance of alert dialog builder object
+            val builder = AlertDialog.Builder(activity!!)
+
+            // Set a title for alert dialog
+            builder.setTitle("เลือกเพศ")
+
+            // Set the single choice items for alert dialog with initial selection
+            builder.setSingleChoiceItems(array,-1) { _, which->
+                // Get the dialog selected item
+                val txt = array[which]
+                text_prefix_th.text = txt
+
+                if (txt=="ชาย") {
+                    text_prefix_en.text = "Men"
+                } else if (txt=="หญิง") {
+                    text_prefix_en.text = "Women"
+                }else {
+                    text_prefix_en.text = "Other"
+                }
+
+                Toast.makeText(activity!!.baseContext,  text_prefix_th.text, Toast.LENGTH_SHORT).show()
+                // Dismiss the dialog
+                dialog.dismiss()
+            }
+
+            // Initialize the AlertDialog using builder object
+            dialog = builder.create()
+
+            // Finally, display the alert dialog
+            dialog.show()
+
+        }
+
         // ------------------------------- Firebase---------------------------------- //
-        val account_username = "60160169"
         val mRootRef = FirebaseDatabase.getInstance().getReference()
-        val mMessagesRef = mRootRef.child("hr_address")
+        val mMessagesRef = mRootRef.child("hr_personal")
 
         mMessagesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -203,39 +261,38 @@ class PersonalFragment : Fragment() {
                     val interest_in = ds.child("interest_in").getValue(String::class.java)!!
 
                     if (username == account_username) {
-
                         Str_key = ds.key.toString()
                         obj_hr_pesonal = hr_personal(
-                            account_username,
-                            work_in,
-                            prefix_th,
-                            prefix_en,
-                            f_name_th,
-                            f_name_en,
-                            l_name_th,
-                            l_name_en,
-                            nick_name_th,
-                            nick_name_en,
-                            gender,
-                            province,
-                            dob,
-                            blood_type,
-                            religion,
-                            nationality,
-                            race,
-                            maritual_status,
-                            citizen_id,
-                            passport_id,
-                            tax_id,
-                            bank_name,
-                            bank_id,
-                            email,
-                            facebook,
-                            twitter,
-                            website,
-                            motto,
-                            interest_in
-                        )
+                                                                account_username,
+                                                                work_in,
+                                                                prefix_th,
+                                                                prefix_en,
+                                                                f_name_th,
+                                                                f_name_en,
+                                                                l_name_th,
+                                                                l_name_en,
+                                                                nick_name_th,
+                                                                nick_name_en,
+                                                                gender,
+                                                                province,
+                                                                dob,
+                                                                blood_type,
+                                                                religion,
+                                                                nationality,
+                                                                race,
+                                                                maritual_status,
+                                                                citizen_id,
+                                                                passport_id,
+                                                                tax_id,
+                                                                bank_name,
+                                                                bank_id,
+                                                                email,
+                                                                facebook,
+                                                                twitter,
+                                                                website,
+                                                                motto,
+                                                                interest_in
+                                                            )
                     }
 
                 }
@@ -312,9 +369,9 @@ class PersonalFragment : Fragment() {
                             ,text_interest_in.text.toString()
                         )
                         mMessagesRef.push().setValue(obj_hr_pesonal)
-                        Toast.makeText(activity!!.baseContext, "เพิ่มสำเร็จ", Toast.LENGTH_SHORT).show()
-                        activity!!.supportFragmentManager.popBackStack()
+                        Toast.makeText(activity!!.baseContext, "บันทึกสำเร็จ", Toast.LENGTH_SHORT).show()
                     }else{
+                        mMessagesRef.child(Str_key).child("username").setValue(account_username)
                         mMessagesRef.child(Str_key).child("work_in").setValue(text_work_in.text.toString())
                         mMessagesRef.child(Str_key).child("prefix_th").setValue(text_prefix_th.text.toString())
                         mMessagesRef.child(Str_key).child("prefix_en").setValue(text_prefix_en.text.toString())
@@ -347,8 +404,7 @@ class PersonalFragment : Fragment() {
                         mMessagesRef.child(Str_key).child("motto").setValue(text_motto.text.toString())
                         mMessagesRef.child(Str_key).child("interest_in").setValue(text_interest_in.text.toString())
 
-                        Toast.makeText(activity!!.baseContext, "แก้ไขสำเร็จ", Toast.LENGTH_SHORT).show()
-                        activity!!.supportFragmentManager.popBackStack()
+                        Toast.makeText(activity!!.baseContext, "บันทึกสำเร็จ", Toast.LENGTH_SHORT).show()
                     }
 
                 }
@@ -367,5 +423,4 @@ class PersonalFragment : Fragment() {
         return view
     }
     // ---------------------------------------------------------------------------- //
-
 }

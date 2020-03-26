@@ -225,8 +225,7 @@ class AddressFragment : Fragment() {
                         mMessagesRef.child(Str_key).child("work_phone_number").setValue(view_work_phone_number.text.toString())
                         mMessagesRef.child(Str_key).child("work_in_phone_number").setValue(view_work_in_phone_number.text.toString())
 
-                        Toast.makeText(activity!!.baseContext, "แก้ไขสำเร็จ", Toast.LENGTH_SHORT).show()
-                        activity!!.supportFragmentManager.popBackStack()
+                        Toast.makeText(activity!!.baseContext, "บันทึกสำเร็จ", Toast.LENGTH_SHORT).show()
                     }
 
                 }

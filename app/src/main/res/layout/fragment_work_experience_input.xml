@@ -39,8 +39,7 @@
         android:layout_marginTop="40dp"
         android:text="เพิ่มข้อมูลประสบการณ์"
         android:textColor="#fff"
-        android:textSize="30dp"
-        android:textStyle="bold"
+        android:textSize="23dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +64,7 @@
         <LinearLayout
 
             android:id="@+id/linearLayout"
-            android:layout_width="384dp"
+            android:layout_width="match_parent"
             android:layout_height="539dp"
             android:background="@drawable/form"
             android:orientation="vertical"
@@ -95,7 +94,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="กรอกตำแหน่งในสายงาน"/>
 
             <TextView
                 android:id="@+id/textView8"
@@ -116,7 +116,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="กรอกตำแหน่งในการบริหารงาน"/>
 
             <TextView
                 android:id="@+id/textView9"
@@ -137,7 +138,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="กรอกระดับตำแหน่ง"/>
 
             <TextView
                 android:id="@+id/textView95"
@@ -158,7 +160,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="กรอกตำแหน่งบริหาร"/>
 
             <TextView
                 android:id="@+id/textView955"
@@ -179,7 +182,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="กรอกหน่วยงานย่อยที่สังกัด"/>
 
             <TextView
                 android:id="@+id/textView10"
@@ -200,7 +204,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="กรอกวันที่ดำรงตำแหน่ง"/>
 
 
             <TextView
@@ -222,7 +227,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="กรอกวันที่สิ้นสุดดำรงตำแหน่ง"/>
 
 
             <TextView
@@ -244,7 +250,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:hint="ระบุเอง"/>
 
         </LinearLayout>
     </ScrollView>

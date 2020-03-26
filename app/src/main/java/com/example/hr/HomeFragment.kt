@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
         // ---------------------------------------------------------------------------- //
 
         btn_personal.setOnClickListener{
-            load_fragment = PersonalFragment()
+            load_fragment = PersonalFragment().newInstance(account_username)
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_personal")
             transaction.addToBackStack("fragment_personal")

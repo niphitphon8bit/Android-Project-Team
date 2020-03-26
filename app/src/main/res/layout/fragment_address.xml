@@ -66,7 +66,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกที่อยู่"/>
 
         <TextView
             android:id="@+id/textView8"
@@ -87,7 +88,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกตำบล"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -108,7 +110,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกอำเภอ"/>
 
         <TextView
             android:id="@+id/textView10"
@@ -129,7 +132,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกจังหวัด"/>
 
         <TextView
             android:id="@+id/textView11"
@@ -150,7 +154,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกรหัสไปรษณีย์"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -211,7 +216,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกที่อยู่"/>
 
         <TextView
             android:id="@+id/textView81"
@@ -232,7 +238,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกตำบล"/>
 
         <TextView
             android:id="@+id/textView92"
@@ -253,7 +260,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกอำเภอ"/>
 
         <TextView
             android:id="@+id/textView103"
@@ -274,7 +282,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกจังหวัด"/>
 
         <TextView
             android:id="@+id/textView131"
@@ -295,7 +304,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกรหัสไปรษณีย์"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -354,7 +364,7 @@ tools:context=".Address.AddressFragment">
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="บ้าน  "
+            android:text="เบอร์บ้าน "
             android:textSize="20dp" />
 
         <EditText
@@ -367,7 +377,8 @@ tools:context=".Address.AddressFragment">
             android:inputType="textPersonName"
             android:ems="10"
             android:padding="12dp"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกเบอร์บ้าน"/>
 
         <TextView
             android:id="@+id/textView813"
@@ -388,7 +399,9 @@ tools:context=".Address.AddressFragment">
             android:inputType="textPersonName"
             android:ems="10"
             android:padding="12dp"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกเบอร์มือถือ"
+            />
 
         <TextView
             android:id="@+id/textView924"
@@ -396,7 +409,7 @@ tools:context=".Address.AddressFragment">
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:text="ที่ทำงาน"
+            android:text="เบอร์ที่ทำงาน"
             android:textSize="20dp" />
 
         <EditText
@@ -409,7 +422,8 @@ tools:context=".Address.AddressFragment">
             android:inputType="textPersonName"
             android:ems="10"
             android:padding="12dp"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกเบอร์ที่ทำงาน"/>
 
         <TextView
             android:id="@+id/textView9624"
@@ -430,7 +444,8 @@ tools:context=".Address.AddressFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกเบอร์ภายใน"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
