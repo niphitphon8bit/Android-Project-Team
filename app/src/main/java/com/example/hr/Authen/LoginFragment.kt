@@ -83,63 +83,61 @@ class LoginFragment : Fragment() {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Set on button Sign In
         btn_signin!!.setOnClickListener{
-            val builder: AlertDialog.Builder = AlertDialog.Builder(this.context)
-            builder.setMessage("เลือกหน่อย")
-            builder.setPositiveButton("เข้าสู่ระบบ",
-                DialogInterface.OnClickListener { dialog, id ->
+            var validate = true
+            if(view_input_username.text.toString() == ""){
+                validate = false
+                Toast.makeText(activity!!.baseContext, "กรุณากรอกชื่อผู้ใช้", Toast.LENGTH_SHORT).show()
+            }else if(view_input_password.text.toString() == ""){
+                validate = false
+                Toast.makeText(activity!!.baseContext, "กรุณากรอกรหัสผ่าน", Toast.LENGTH_SHORT).show()
+            }
 
-
-                    var validate = true
-                    if(view_input_username.text.toString() == ""){
-                        validate = false
-                        Toast.makeText(activity!!.baseContext, "กรุณากรอกชื่อผู้ใช้", Toast.LENGTH_SHORT).show()
-                    }else if(view_input_password.text.toString() == ""){
-                        validate = false
-                        Toast.makeText(activity!!.baseContext, "กรุณากรอกรหัสผ่าน", Toast.LENGTH_SHORT).show()
-                    }
-
-                    if(validate == true){
-                        var check_username = false
-                        var check_password = false
-                        var account_name = ""
-                        for (i in 0 until list.length()) {
-                            if(list.getJSONObject(i).getString("username").toString() == view_input_username.text.toString()){
-                                check_username = true
-                                if(list.getJSONObject(i).getString("password").toString() == view_input_password.text.toString()){
-                                    check_password = true
-                                    account_name = list.getJSONObject(i).getString("name").toString()
-                                    break
-                                }
-                            }
-                        }
-
-                        if(check_username == true && check_password == true){
-                            Toast.makeText(context,"ยินดีต้อนรับ " + account_name!!.toString(), Toast.LENGTH_SHORT).show()
-
-                            val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
-                            val load_fragment = HomeFragment().newInstance(account_name!!.toString(), view_input_username!!.text.toString())
-
-                            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-                            transaction.replace(R.id.contentContainer, load_fragment,"fragment_home")
-                            transaction.addToBackStack("fragment_home")
-                            transaction.commit()
-                        }else{
-                            Toast.makeText(context,"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง", Toast.LENGTH_SHORT).show()
+            if(validate == true){
+                var check_username = false
+                var check_password = false
+                var account_name = ""
+                for (i in 0 until list.length()) {
+                    if(list.getJSONObject(i).getString("username").toString() == view_input_username.text.toString()){
+                        check_username = true
+                        if(list.getJSONObject(i).getString("password").toString() == view_input_password.text.toString()){
+                            check_password = true
+                            account_name = list.getJSONObject(i).getString("name").toString()
+                            break
                         }
                     }
+                }
 
+                if(check_username == true && check_password == true){
+                    Toast.makeText(context,"ยินดีต้อนรับ " + account_name!!.toString(), Toast.LENGTH_SHORT).show()
 
-                })
-            builder.setNegativeButton("ลงทะเบียน",
-                DialogInterface.OnClickListener { dialog, which ->
-                    obj_hr_account = hr_account(
-                        view_input_username.text.toString(),
-                        view_input_password.text.toString(),
-                        view_input_username.text.toString()
-                    )
-                    mMessagesRef.push().setValue(obj_hr_account)
-                })
-            builder.show()
+                    val transaction : FragmentTransaction = fragmentManager!!.beginTransaction()
+                    val load_fragment = HomeFragment().newInstance(account_name!!.toString(), view_input_username!!.text.toString())
+
+                    transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
+                    transaction.replace(R.id.contentContainer, load_fragment,"fragment_home")
+                    transaction.addToBackStack("fragment_home")
+                    transaction.commit()
+                }else{
+                    Toast.makeText(context,"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+//            val builder: AlertDialog.Builder = AlertDialog.Builder(this.context)
+//            builder.setMessage("เลือกหน่อย")
+//            builder.setPositiveButton("เข้าสู่ระบบ",
+//                DialogInterface.OnClickListener { dialog, id ->
+//
+//                })
+//            builder.setNegativeButton("ลงทะเบียน",
+//                DialogInterface.OnClickListener { dialog, which ->
+//                    obj_hr_account = hr_account(
+//                        view_input_username.text.toString(),
+//                        view_input_password.text.toString(),
+//                        view_input_username.text.toString()
+//                    )
+//                    mMessagesRef.push().setValue(obj_hr_account)
+//                })
+//            builder.show()
 
         }
         // ---------------------------------------------------------------------------- //
