@@ -1,12 +1,15 @@
 package com.example.hr.Work_experience
 
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.FragmentManager
 import com.example.hr.Membership_card.MembershipCardInputFragment
 
 import com.example.hr.R
@@ -53,6 +56,7 @@ class WorkExperienceInputFragment : Fragment() {
 
         var submit_btn:Button = view.findViewById(R.id.submit_btn)
         var delete_btn:ImageButton = view.findViewById(R.id.btn_delete)
+        var back_btn:ImageButton = view.findViewById(R.id.btn_back)
 
         val mRootRef = FirebaseDatabase.getInstance().getReference()
         val mMessagesRef = mRootRef.child("hr_experience")
@@ -64,7 +68,6 @@ class WorkExperienceInputFragment : Fragment() {
         }else{
             header.setText("แก้ไขข้อมูลประสบการณ์")
         }
-
 
         submit_btn.setOnClickListener {
             if(Str_key == ""){
@@ -83,19 +86,55 @@ class WorkExperienceInputFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "เพิ่มสำเร็จ", Toast.LENGTH_SHORT).show()
                 activity!!.supportFragmentManager.popBackStack()
             }else{
+                mMessagesRef.child(Str_key).child("position_work_name").setValue(pos_work.text.toString())
+                mMessagesRef.child(Str_key).child("position_manage_name").setValue(pos_manager.text.toString())
+                mMessagesRef.child(Str_key).child("position_level").setValue(seq_pos.text.toString())
+                mMessagesRef.child(Str_key).child("manage_name").setValue(manage_name.text.toString())
+                mMessagesRef.child(Str_key).child("place").setValue(place.text.toString())
+                mMessagesRef.child(Str_key).child("start_date").setValue(start_pos.text.toString())
+                mMessagesRef.child(Str_key).child("end_date").setValue(end_pos.text.toString())
+                mMessagesRef.child(Str_key).child("text_th").setValue(note.text.toString())
 
+                Toast.makeText(activity!!.baseContext, "แก้ไขสำเร็จ", Toast.LENGTH_SHORT).show()
+                activity!!.supportFragmentManager.popBackStack()
             }
+        }
 
+        delete_btn.setOnClickListener {
+            val builder: AlertDialog.Builder = AlertDialog.Builder(this.context)
+            builder.setMessage("ต้องการลบหรือไม่?")
+            builder.setPositiveButton("ลบ",
+                DialogInterface.OnClickListener { dialog, id ->
+                    val mMessagesRef = mRootRef.child("hr_experience").child(Str_key)
+
+                    mMessagesRef.setValue(null)
+
+                    Toast.makeText(activity!!.baseContext, "ลบสำเร็จ", Toast.LENGTH_SHORT).show()
+                    val fm: FragmentManager = activity!!.getSupportFragmentManager()
+                    fm.popBackStack("WorkExperienceInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                })
+            builder.setNegativeButton("ยกเลิก",
+                DialogInterface.OnClickListener { dialog, which ->
+                    //dialog.dismiss();
+                })
+            builder.show()
+        }
+
+
+        back_btn.setOnClickListener{
+            val fm: FragmentManager = activity!!.getSupportFragmentManager()
+            fm.popBackStack("WorkExperienceInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
 
 
         return view
     }
 
-    fun newInstance(username: String, position_work_name :String , position_manage_name :String , position_level :String , manage_name :String , place :String , start_date :String, end_date  :String, text_th  :String): WorkExperienceInputFragment {
+    fun newInstance(key: String,username: String, position_work_name :String , position_manage_name :String , position_level :String , manage_name :String , place :String , start_date :String, end_date  :String, text_th  :String): WorkExperienceInputFragment {
         val fragment = WorkExperienceInputFragment()
         val bundle = Bundle()
-        bundle.putString("username ", username)
+        bundle.putString("key", key)
+        bundle.putString("username", username)
         bundle.putString("position_work_name", position_work_name)
         bundle.putString("position_manage_name", position_manage_name)
         bundle.putString("position_level", position_level)

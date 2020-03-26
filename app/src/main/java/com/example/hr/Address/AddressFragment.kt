@@ -29,7 +29,7 @@ import org.json.JSONObject
 class AddressFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var obj_hr_address : hr_address
-    var account_username : String = "60160157"
+    var account_username : String = ""
 
     var Str_key = "" // key obj_hr_work_experience from firebase
 

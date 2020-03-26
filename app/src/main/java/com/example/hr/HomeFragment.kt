@@ -73,7 +73,7 @@ class HomeFragment : Fragment() {
         // ---------------------------------------------------------------------------- //
 
         btn_address.setOnClickListener{
-            load_fragment = AddressFragment()
+            load_fragment = AddressFragment().newInstance(account_username)
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_address")
             transaction.addToBackStack("fragment_address")
@@ -99,7 +99,7 @@ class HomeFragment : Fragment() {
         // ---------------------------------------------------------------------------- //
 
         btn_membership_card.setOnClickListener{
-            load_fragment = MembershipCardFragment()
+            load_fragment = MembershipCardFragment().newInstance(account_username)
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_membership_card")
             transaction.addToBackStack("fragment_membership_card")
@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
         // ---------------------------------------------------------------------------- //
 
         btn_work_experience.setOnClickListener{
-            load_fragment = WorkExperienceFragment()
+            load_fragment = WorkExperienceFragment().newInstance(account_username)
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_work_experience")
             transaction.addToBackStack("fragment_work_experience")

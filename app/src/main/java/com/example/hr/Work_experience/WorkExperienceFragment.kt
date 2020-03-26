@@ -32,7 +32,7 @@ class WorkExperienceFragment : Fragment() {
         private lateinit var recyclerView: RecyclerView
 
         private lateinit var obj_hr_work_experience : hr_work_experience
-        var account_username : String = "60160157"
+        var account_username : String = ""
         var Str_key = "" // key obj_hr_work_experience from firebase
 
         data class hr_work_experience (
@@ -111,7 +111,7 @@ class WorkExperienceFragment : Fragment() {
             val btn_back = view.findViewById(R.id.view_btn_back) as ImageButton
 
             btn_add!!.setOnClickListener{
-                val load_fragment = WorkExperienceInputFragment().newInstance(account_username,"","","","","","","","")
+                val load_fragment = WorkExperienceInputFragment().newInstance("",account_username,"","","","","","","","")
                 transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
                 transaction.addToBackStack("WorkExperienceInputFragment")
