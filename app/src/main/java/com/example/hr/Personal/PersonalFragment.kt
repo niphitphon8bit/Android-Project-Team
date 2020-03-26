@@ -406,7 +406,6 @@ class PersonalFragment : Fragment() {
                         mMessagesRef.child(Str_key).child("interest_in").setValue(text_interest_in.text.toString())
 
                         Toast.makeText(activity!!.baseContext, "แก้ไขสำเร็จ", Toast.LENGTH_SHORT).show()
-                        activity!!.supportFragmentManager.popBackStack()
                     }
 
                 }
