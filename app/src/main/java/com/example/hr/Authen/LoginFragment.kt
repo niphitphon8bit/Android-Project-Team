@@ -138,6 +138,7 @@ class LoginFragment : Fragment() {
                         view_input_username.text.toString()
                     )
                     mMessagesRef.push().setValue(obj_hr_account)
+                    Toast.makeText(context,"สมัครสำเร็จ!", Toast.LENGTH_SHORT).show()
                 })
             builder.show()
 
