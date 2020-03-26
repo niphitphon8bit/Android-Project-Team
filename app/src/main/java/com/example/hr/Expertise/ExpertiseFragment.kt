@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hr.Membership_card.MembershipCardAdapter
+import com.example.hr.Membership_card.MembershipCardFragment
 import com.example.hr.Membership_card.MembershipCardInputFragment
 import com.example.hr.Personal.PersonalFragment
 
@@ -28,7 +29,7 @@ import org.json.JSONObject
  */
 class ExpertiseFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
-    var account_username : String = "60160157"
+    var account_username : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -93,7 +94,7 @@ class ExpertiseFragment : Fragment() {
         var btn_add = view.findViewById<FloatingActionButton>(R.id.floatingActionButton) as FloatingActionButton
 
         btn_add!!.setOnClickListener{
-            val load_fragment = ExpertiseInputFragment()
+            val load_fragment = ExpertiseInputFragment().newInstance("",account_username,"","","","")
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"_ExpertiseInputFragment")
             transaction.addToBackStack("_ExpertiseInputFragment")
@@ -101,6 +102,22 @@ class ExpertiseFragment : Fragment() {
         }
 
         return view
+    }
+
+    fun newInstance(username:String): ExpertiseFragment {
+        val fragment = ExpertiseFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        if (bundle != null) {
+            account_username = bundle.getString("username").toString()
+        }
     }
 
 

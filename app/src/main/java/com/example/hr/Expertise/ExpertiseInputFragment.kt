@@ -79,7 +79,7 @@ class ExpertiseInputFragment : Fragment() {
                 Toast.makeText(activity!!.baseContext, "กรุณากรอกวประเด็นสำคัญ (อังกฤษ)", Toast.LENGTH_SHORT).show()
             }else if(check_insert == true){
                 if(Str_key == ""){
-                    var user =  "60160157"
+                    var user =  obj_hr_expertise.username
                     obj_hr_expertise = hr_expertise(
                         user,
                         view_title_name_th.text.toString(),
