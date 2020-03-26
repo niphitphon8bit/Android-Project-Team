@@ -1,0 +1,87 @@
+package com.example.hr.Education
+
+import com.example.hr.R
+
+import android.content.Context
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.RecyclerView
+
+import org.json.JSONArray
+
+class EducationAdapter (fragmentActivity: FragmentActivity, val dataSource: JSONArray, val account_username:String) : RecyclerView.Adapter<EducationAdapter.Holder>() {
+
+    private val thiscontext : Context = fragmentActivity.baseContext
+    private val thisActivity = fragmentActivity
+
+    class Holder(view : View) : RecyclerView.ViewHolder(view) {
+        private val View = view
+        lateinit var layout : LinearLayout
+        lateinit var education_degree: TextView
+        lateinit var education_id: TextView
+        lateinit var education_start: TextView
+        lateinit var education_end: TextView
+        lateinit var education_major : TextView
+        lateinit var education_palce: TextView
+        lateinit var education_country: TextView
+        lateinit var education_highest_degree: TextView
+        lateinit var education_service_degree: TextView
+        lateinit var education_major_type   : TextView
+        lateinit var education_hornors: TextView
+
+
+        fun Holder(){
+            layout = View.findViewById<View>(R.id.recy_education_layout) as LinearLayout
+            education_degree = View.findViewById<View>(R.id.education_degree) as TextView
+            education_id = View.findViewById<View>(R.id.education_name) as TextView
+            education_start = View.findViewById<View>(R.id.education_start_date) as TextView
+            education_end = View.findViewById<View>(R.id.education_end_date) as TextView
+        }
+    }
+
+    override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): Holder {
+        return Holder(LayoutInflater.from(parent.context).inflate(R.layout.recy_education, parent, false))
+    }
+
+
+    override fun getItemCount(): Int {
+        return dataSource.length()
+    }
+
+    override fun onBindViewHolder(holder: Holder, position: Int) {
+
+        holder.Holder()
+
+        holder.education_degree.setText( dataSource.getJSONObject(position).getString("degree").toString() )
+        holder.education_id.setText( "ชื่อ: " + dataSource.getJSONObject(position).getString("name").toString() )
+        holder.education_start.setText( dataSource.getJSONObject(position).getString("start_date").toString() )
+        holder.education_end.setText( dataSource.getJSONObject(position).getString("exp_date").toString() )
+
+        holder.layout.setOnClickListener {
+            var key = dataSource.getJSONObject(position).getString("key").toString()
+            var username = dataSource.getJSONObject(position).getString("username").toString()
+            var education_degree = dataSource.getJSONObject(position).getString("degree").toString()
+            var education_id = dataSource.getJSONObject(position).getString("name").toString()
+            var education_start = dataSource.getJSONObject(position).getString("start_date").toString()
+            var education_end = dataSource.getJSONObject(position).getString("exp_date").toString()
+
+            val fm = thisActivity.supportFragmentManager
+            val transaction: FragmentTransaction = fm!!.beginTransaction()
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
+            val load_fragment = EducationInputFragment().newInstance(key, username, education_degree, education_id, education_start, education_end)
+            transaction.replace(R.id.contentContainer, load_fragment,"_EducationInputFragment")
+            transaction.addToBackStack("_EducationInputFragment")
+            transaction.commit()
+        }
+
+    }
+
+}
+
