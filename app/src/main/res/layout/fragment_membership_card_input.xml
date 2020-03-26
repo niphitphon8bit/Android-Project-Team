@@ -75,7 +75,8 @@ tools:context=".Membership_card.MembershipCardInputFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกชื่อวิชาชีพ"/>
 
         <TextView
             android:id="@+id/textView8"
@@ -96,7 +97,8 @@ tools:context=".Membership_card.MembershipCardInputFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกเลขที่สมาชิกสภาวิชาชีพ"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -117,7 +119,8 @@ tools:context=".Membership_card.MembershipCardInputFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกวันออกบัตร"/>
 
         <TextView
             android:id="@+id/textView10"
@@ -138,7 +141,8 @@ tools:context=".Membership_card.MembershipCardInputFragment">
             android:ems="10"
             android:padding="12dp"
             android:inputType="textPersonName"
-            android:text="" />
+            android:text=""
+            android:hint="กรอกวันหมดอายุ"/>
 
 
     </LinearLayout>
