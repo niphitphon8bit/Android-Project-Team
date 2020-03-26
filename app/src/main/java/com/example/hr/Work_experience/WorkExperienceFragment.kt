@@ -44,20 +44,8 @@ class WorkExperienceFragment : Fragment() {
             var place  : String? = "",
             var start_date  : String? = "",
             var end_date  : String? = "",
-            var text_th  : String? = "",
-            var text_en  : String? = ""
+            var text_th  : String? = ""
         )
-
-
-
-
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_work_experience, container, false)
-//    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -65,7 +53,7 @@ class WorkExperienceFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val mRootRef = FirebaseDatabase.getInstance().reference
-        val mMessagesRef = mRootRef.child("data")
+        val mMessagesRef = mRootRef.child("hr_work_experience")
 
         mMessagesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -73,37 +61,32 @@ class WorkExperienceFragment : Fragment() {
                 val list = JSONArray()
                 recyclerView = view.findViewById(R.id.recyLayout)
 
-
                 for (ds in dataSnapshot.children) {
 
                     val jObject = JSONObject()
 
                     val username = ds.child("username").getValue(String::class.java)!!
-                    val position_work_name =
-                        ds.child("position_work_name").getValue(String::class.java)!!
-                    val position_manage_name =
-                        ds.child("position_manage_name").getValue(String::class.java)!!
+                    val position_work_name = ds.child("position_work_name").getValue(String::class.java)!!
+                    val position_manage_name = ds.child("position_manage_name").getValue(String::class.java)!!
                     val position_level = ds.child("position_level").getValue(String::class.java)!!
                     val manage_name = ds.child("manage_name").getValue(String::class.java)!!
                     val place = ds.child("place").getValue(String::class.java)!!
                     val start_date = ds.child("start_date").getValue(String::class.java)!!
                     val end_date = ds.child("end_date").getValue(String::class.java)!!
-                    val text_th = ds.child("start_date").getValue(String::class.java)!!
-                    val text_en = ds.child("end_date").getValue(String::class.java)!!
+                    val text_th = ds.child("text_th ").getValue(String::class.java)!!
 
 
                     if (username == account_username) {
                         jObject.put("key", ds.key)
                         jObject.put("username", username)
-                        jObject.put("text", position_work_name)
-                        jObject.put("username", position_manage_name)
-                        jObject.put("text", position_level)
-                        jObject.put("username", manage_name)
-                        jObject.put("text", place)
-                        jObject.put("username", start_date)
-                        jObject.put("text", end_date)
-                        jObject.put("username", text_th)
-                        jObject.put("text", text_en)
+                        jObject.put("position_work_name", position_work_name)
+                        jObject.put("position_manage_name", position_manage_name)
+                        jObject.put("position_level", position_level)
+                        jObject.put("manage_name", manage_name)
+                        jObject.put("place", place)
+                        jObject.put("start_date", start_date)
+                        jObject.put("end_date", end_date)
+                        jObject.put("text_th", text_th)
 
                         list.put(jObject)
 
@@ -128,7 +111,7 @@ class WorkExperienceFragment : Fragment() {
             val btn_back = view.findViewById(R.id.view_btn_back) as ImageButton
 
             btn_add!!.setOnClickListener{
-                val load_fragment = WorkExperienceInputFragment().newInstance("insert","","","","","","")
+                val load_fragment = WorkExperienceInputFragment().newInstance(account_username,"","","","","","","","")
                 transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
                 transaction.addToBackStack("WorkExperienceInputFragment")
@@ -136,12 +119,30 @@ class WorkExperienceFragment : Fragment() {
             }
 
             btn_back.setOnClickListener{
-            val fm: FragmentManager = activity!!.getSupportFragmentManager()
-            fm.popBackStack("fragment_work_experience", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                val fm: FragmentManager = activity!!.getSupportFragmentManager()
+                fm.popBackStack("fragment_work_experience", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             }
 
         return view
     }
+
+
+    fun newInstance(username:String): WorkExperienceFragment {
+        val fragment = WorkExperienceFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        if (bundle != null) {
+            account_username = bundle.getString("username").toString()
+        }
+    }
+
 
 
 

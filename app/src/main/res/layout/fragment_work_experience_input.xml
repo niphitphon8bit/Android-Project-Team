@@ -129,6 +129,46 @@
                 android:inputType="textPersonName"
                 android:padding="12dp"
                 android:textColor="#000000" />
+            <TextView
+                android:id="@+id/textView95"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="ตำแหน่งบริหาร"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/manage_name"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/input"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="#000000" />
+            <TextView
+                android:id="@+id/textView955"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="หน่วยงานย่อยที่สังกัด"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/place"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/input"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/textView10"

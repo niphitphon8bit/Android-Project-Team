@@ -27,7 +27,7 @@ class MembershipCardInputFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var obj_hr_membership_card : hr_membership_card
 
-    var Str_key = "" // key obj_hr_work_experience from firebase
+    var Str_key = "" // key obj_hr_membership_card from firebase
 
     data class hr_membership_card (
         var username: String? = "",
