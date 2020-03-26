@@ -75,7 +75,7 @@ class EducationFragment : Fragment() {
 
                 }
 
-                val adapter = MembershipCardAdapter(activity!!, list, account_username)
+                val adapter = EducationAdapter(activity!!, list, account_username)
 
                 recyclerView.adapter = adapter
 
