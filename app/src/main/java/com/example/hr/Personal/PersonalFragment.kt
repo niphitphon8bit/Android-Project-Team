@@ -1,5 +1,6 @@
 package com.example.hr.Personal
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -71,6 +72,7 @@ class PersonalFragment : Fragment() {
         return fragment
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -180,8 +182,43 @@ class PersonalFragment : Fragment() {
         // ---------------------------------------------------------------------------- //
 
         text_prefix_th.setOnClickListener{
-            gender = this.chooseGender()
-            text_prefix_th.setText(gender)
+            // Late initialize an alert dialog object
+            lateinit var dialog: AlertDialog
+
+            // Initialize an array of colors
+            val array = arrayOf("ไม่ระบุ", "ชาย", "หญิง")
+
+            // Initialize a new instance of alert dialog builder object
+            val builder = AlertDialog.Builder(activity!!)
+
+            // Set a title for alert dialog
+            builder.setTitle("เลือกเพศ")
+
+            // Set the single choice items for alert dialog with initial selection
+            builder.setSingleChoiceItems(array,-1) { _, which->
+                // Get the dialog selected item
+                val txt = array[which]
+                text_prefix_th.text = txt
+
+                if (txt=="ชาย") {
+                    text_prefix_en.text = "Men"
+                } else if (txt=="หญิง") {
+                    text_prefix_en.text = "Women"
+                }else {
+                    text_prefix_en.text = "Other"
+                }
+
+                Toast.makeText(activity!!.baseContext,  text_prefix_th.text, Toast.LENGTH_SHORT).show()
+                // Dismiss the dialog
+                dialog.dismiss()
+            }
+
+            // Initialize the AlertDialog using builder object
+            dialog = builder.create()
+
+            // Finally, display the alert dialog
+            dialog.show()
+
         }
 
         // ------------------------------- Firebase---------------------------------- //
@@ -388,39 +425,4 @@ class PersonalFragment : Fragment() {
         return view
     }
     // ---------------------------------------------------------------------------- //
-
-    // Method to show an alert dialog with single choice list items
-    private fun chooseGender() : String{
-        // Late initialize an alert dialog object
-        lateinit var dialog: AlertDialog
-
-        // Initialize an array of colors
-        val array = arrayOf("ไม่ระบุ", "ชาย", "หญิง")
-
-        // Initialize a new instance of alert dialog builder object
-        val builder = AlertDialog.Builder(activity!!)
-
-        var gender = ""
-
-        // Set a title for alert dialog
-        builder.setTitle("เลือกเพศ")
-
-        // Set the single choice items for alert dialog with initial selection
-        builder.setSingleChoiceItems(array,-1) { _, which->
-            // Get the dialog selected item
-            val txt = array[which]
-            gender = txt
-            Toast.makeText(activity!!.baseContext, gender, Toast.LENGTH_SHORT).show()
-            // Dismiss the dialog
-            dialog.dismiss()
-        }
-
-        // Initialize the AlertDialog using builder object
-        dialog = builder.create()
-
-        // Finally, display the alert dialog
-        dialog.show()
-        return gender
-    }
-
 }
