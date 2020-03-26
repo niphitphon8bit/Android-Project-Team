@@ -25,23 +25,18 @@ class WorkExperienceAdapter (fragmentActivity: FragmentActivity, val dataSource:
         lateinit var rank:TextView
         lateinit var start_date:TextView
         lateinit var end_date:TextView
-//        lateinit var view_transaction_category: TextView
-
 
         fun Holder(){
-
+            layout = View.findViewById<View>(R.id.recyview_layout) as LinearLayout
             rank = View.findViewById(R.id.position) as TextView
             start_date = View.findViewById(R.id.start_date) as TextView
             end_date = View.findViewById(R.id.end_date) as TextView
-//            layout = View.findViewById<View>(R.id.recyview_layout) as LinearLayout
-//            view_transaction_category = View.findViewById<View>(R.id.view_transaction_category) as TextView
         }
     }
 
     override fun onCreateViewHolder(parent : ViewGroup, viewType: Int): Holder {
         return Holder(LayoutInflater.from(parent.context).inflate(R.layout.recy_work_experience, parent, false))
     }
-
 
     override fun getItemCount(): Int {
         return dataSource.length()
@@ -54,41 +49,26 @@ class WorkExperienceAdapter (fragmentActivity: FragmentActivity, val dataSource:
         holder.start_date.setText(dataSource.getJSONObject(position).getString("start_date").toString() )
         holder.end_date.setText(dataSource.getJSONObject(position).getString("end_date").toString() )
 
-//        holder.view_transaction_category.setText( dataSource.getJSONObject(position).getString("categories_name").toString() )
-//        holder.view_transaction_note.setText( dataSource.getJSONObject(position).getString("transaction_note").toString() )
-
-
         holder.layout.setOnClickListener {
-            var pos_work = dataSource.getJSONObject(position).getString("55").toString()
-            var pos_manager = dataSource.getJSONObject(position).getString("55").toString()
-            var seq_pos = dataSource.getJSONObject(position).getString("55").toString()
-            var start_pos = dataSource.getJSONObject(position).getString("55").toString()
-            var end_pos = dataSource.getJSONObject(position).getString("55").toString()
-            var note = dataSource.getJSONObject(position).getString("55").toString()
+            var key = dataSource.getJSONObject(position).getString("key").toString()
+            var username  = dataSource.getJSONObject(position).getString("username").toString()
+            var position_work_name = dataSource.getJSONObject(position).getString("position_work_name").toString()
+            var position_manage_name = dataSource.getJSONObject(position).getString("position_manage_name").toString()
+            var position_level = dataSource.getJSONObject(position).getString("position_level").toString()
+            var manage_name = dataSource.getJSONObject(position).getString("manage_name").toString()
+            var place = dataSource.getJSONObject(position).getString("place").toString()
+            var start_date = dataSource.getJSONObject(position).getString("start_date").toString()
+            var end_date = dataSource.getJSONObject(position).getString("end_date").toString()
+            var text_th = dataSource.getJSONObject(position).getString("text_th").toString()
 
             val fm = thisActivity.supportFragmentManager
             val transaction: FragmentTransaction = fm!!.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-            val load_fragment = WorkExperienceInputFragment().newInstance("", pos_work, pos_manager, seq_pos, start_pos, end_pos, note) as WorkExperienceInputFragment
+            val load_fragment = WorkExperienceInputFragment().newInstance(key, username, position_work_name, position_manage_name, position_level, manage_name, place, start_date, end_date, text_th) as WorkExperienceInputFragment
             transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
             transaction.addToBackStack("WorkExperienceInputFragment")
             transaction.commit()
 
-//            var key = dataSource.getJSONObject(position).getString("key").toString()
-//            var categories_name = dataSource.getJSONObject(position).getString("categories_name").toString()
-//            var categories_type = dataSource.getJSONObject(position).getString("categories_type").toString()
-//            var transaction_amount = dataSource.getJSONObject(position).getString("transaction_amount").toString()
-//            var transaction_date = dataSource.getJSONObject(position).getString("transaction_date").toString()
-//            var transaction_note = dataSource.getJSONObject(position).getString("transaction_note").toString()
-//            var username = dataSource.getJSONObject(position).getString("username").toString()
-//
-//
-//            val fm = thisActivity.supportFragmentManager
-//            val transaction: FragmentTransaction = fm!!.beginTransaction()
-//            val transaction_Fragment = TransactionFragment().newInstance(key, categories_name, categories_type, transaction_amount, transaction_date, transaction_note, username)
-//            transaction.replace(R.id.contentContainer, transaction_Fragment,"fragment_transaction")
-//            transaction.addToBackStack("fragment_transaction")
-//            transaction.commit()
         }
 
     }

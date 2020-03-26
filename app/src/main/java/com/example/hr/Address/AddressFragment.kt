@@ -29,7 +29,7 @@ import org.json.JSONObject
 class AddressFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var obj_hr_address : hr_address
-    var account_username : String = "60160157"
+    var account_username : String = ""
 
     var Str_key = "" // key obj_hr_work_experience from firebase
 
@@ -121,7 +121,6 @@ class AddressFragment : Fragment() {
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ดึงข้อมูลมาเช็ค
-        account_username = "60160157"
         val mRootRef = FirebaseDatabase.getInstance().getReference()
         val mMessagesRef = mRootRef.child("hr_address")
         mMessagesRef.addValueEventListener(object : ValueEventListener {
