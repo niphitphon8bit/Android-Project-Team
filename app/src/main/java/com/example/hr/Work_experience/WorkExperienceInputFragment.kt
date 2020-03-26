@@ -63,10 +63,10 @@ class WorkExperienceInputFragment : Fragment() {
 
 
         if(Str_key == ""){
-            header.setText("เพิ่มข้อมูลประสบการณ์")
+            header.setText("บันทึกข้อมูลประสบการณ์")
             delete_btn.setVisibility(View.GONE)
         }else{
-            header.setText("แก้ไขข้อมูลประสบการณ์")
+            header.setText("บันทึกข้อมูลประสบการณ์")
 
             pos_work.setText(obj_work_exp.position_work_name)
             pos_manager.setText(obj_work_exp.position_manage_name)
@@ -119,6 +119,7 @@ class WorkExperienceInputFragment : Fragment() {
                     mMessagesRef.setValue(null)
 
                     Toast.makeText(activity!!.baseContext, "ลบสำเร็จ", Toast.LENGTH_SHORT).show()
+
                     val fm: FragmentManager = activity!!.getSupportFragmentManager()
                     fm.popBackStack("WorkExperienceInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 })

@@ -48,8 +48,7 @@ class WorkExperienceFragment : Fragment() {
                 val list = JSONArray()
                 recyclerView = view.findViewById(R.id.recyLayout)
 
-                val layoutManager: RecyclerView.LayoutManager =
-                    LinearLayoutManager(activity!!.baseContext)
+                val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity!!.baseContext)
                 recyclerView.layoutManager = layoutManager
 
                 for (ds in dataSnapshot.children) {
