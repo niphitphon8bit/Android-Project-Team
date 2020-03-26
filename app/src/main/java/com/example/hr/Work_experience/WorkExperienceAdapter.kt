@@ -69,7 +69,7 @@ class WorkExperienceAdapter (fragmentActivity: FragmentActivity, val dataSource:
             val fm = thisActivity.supportFragmentManager
             val transaction: FragmentTransaction = fm!!.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
-            val load_fragment = WorkExperienceInputFragment().newInstance(pos_work, pos_manager, seq_pos, start_pos, end_pos, note) as WorkExperienceInputFragment
+            val load_fragment = WorkExperienceInputFragment().newInstance("", pos_work, pos_manager, seq_pos, start_pos, end_pos, note) as WorkExperienceInputFragment
             transaction.replace(R.id.contentContainer, load_fragment,"WorkExperienceInputFragment")
             transaction.addToBackStack("WorkExperienceInputFragment")
             transaction.commit()

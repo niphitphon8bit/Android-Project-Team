@@ -71,7 +71,6 @@ class WorkExperienceInputFragment : Fragment() {
         return view
     }
 
-<<<<<<< HEAD
     fun newInstance(type_input:String , pos_work:String , pos_manager:String , seq_pos:String , start_pos:String , end_pos:String , note:String): WorkExperienceInputFragment {
         val fragment = WorkExperienceInputFragment()
         val bundle = Bundle()
@@ -104,11 +103,5 @@ class WorkExperienceInputFragment : Fragment() {
             type_input = bundle.getString("type_input").toString()
         }
     }
-=======
-    fun newInstance(pos_work:String, pos_manager:String, seq_pos:String, start_pos:String, end_pos:String, note:String){
-
-    }
-
->>>>>>> ee438e8de178ba243e71fe1be4a17b96d985f3ba
 
 }
