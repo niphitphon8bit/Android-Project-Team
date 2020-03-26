@@ -74,6 +74,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/input"
+                    android:padding="5dp"
                     android:textSize="18sp" />
             </LinearLayout>
 
