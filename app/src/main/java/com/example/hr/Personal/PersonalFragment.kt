@@ -369,8 +369,7 @@ class PersonalFragment : Fragment() {
                             ,text_interest_in.text.toString()
                         )
                         mMessagesRef.push().setValue(obj_hr_pesonal)
-                        Toast.makeText(activity!!.baseContext, "เพิ่มสำเร็จ", Toast.LENGTH_SHORT).show()
-                        activity!!.supportFragmentManager.popBackStack()
+                        Toast.makeText(activity!!.baseContext, "บันทึกสำเร็จ", Toast.LENGTH_SHORT).show()
                     }else{
                         mMessagesRef.child(Str_key).child("username").setValue(account_username)
                         mMessagesRef.child(Str_key).child("work_in").setValue(text_work_in.text.toString())
@@ -405,7 +404,7 @@ class PersonalFragment : Fragment() {
                         mMessagesRef.child(Str_key).child("motto").setValue(text_motto.text.toString())
                         mMessagesRef.child(Str_key).child("interest_in").setValue(text_interest_in.text.toString())
 
-                        Toast.makeText(activity!!.baseContext, "แก้ไขสำเร็จ", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity!!.baseContext, "บันทึกสำเร็จ", Toast.LENGTH_SHORT).show()
                     }
 
                 }
