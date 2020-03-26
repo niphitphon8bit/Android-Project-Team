@@ -28,13 +28,7 @@ class EducationAdapter (fragmentActivity: FragmentActivity, val dataSource: JSON
         lateinit var education_id: TextView
         lateinit var education_start: TextView
         lateinit var education_end: TextView
-        lateinit var education_major : TextView
-        lateinit var education_palce: TextView
-        lateinit var education_country: TextView
-        lateinit var education_highest_degree: TextView
-        lateinit var education_service_degree: TextView
-        lateinit var education_major_type   : TextView
-        lateinit var education_hornors: TextView
+
 
 
         fun Holder(){
@@ -65,19 +59,25 @@ class EducationAdapter (fragmentActivity: FragmentActivity, val dataSource: JSON
         holder.education_end.setText( dataSource.getJSONObject(position).getString("exp_date").toString() )
 
         holder.layout.setOnClickListener {
+
             var key = dataSource.getJSONObject(position).getString("key").toString()
             var username = dataSource.getJSONObject(position).getString("username").toString()
             var education_degree = dataSource.getJSONObject(position).getString("degree").toString()
             var education_id = dataSource.getJSONObject(position).getString("name").toString()
             var education_start = dataSource.getJSONObject(position).getString("start_date").toString()
             var education_end = dataSource.getJSONObject(position).getString("exp_date").toString()
+//            var education_place = dataSource.getJSONObject(position).getString("place").toString()
+//            var education_country= dataSource.getJSONObject(position).getString("country").toString()
+//            var education_major = dataSource.getJSONObject(position).getString("major").toString()
+//            var education_major_type = dataSource.getJSONObject(position).getString("major_type").toString()
+//            var education_hornors = dataSource.getJSONObject(position).getString("hornors").toString()
 
             val fm = thisActivity.supportFragmentManager
             val transaction: FragmentTransaction = fm!!.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             val load_fragment = EducationInputFragment().newInstance(key, username, education_degree, education_id, education_start, education_end)
-            transaction.replace(R.id.contentContainer, load_fragment,"_EducationInputFragment")
-            transaction.addToBackStack("_EducationInputFragment")
+            transaction.replace(R.id.contentContainer, load_fragment,"fragment_education_input")
+            transaction.addToBackStack("fragment_education_input")
             transaction.commit()
         }
 
