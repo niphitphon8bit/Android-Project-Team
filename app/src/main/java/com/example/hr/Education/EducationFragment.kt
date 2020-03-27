@@ -30,7 +30,7 @@ import org.json.JSONObject
 class EducationFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-    var account_username : String = "60160157"
+    var account_username : String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,6 +59,11 @@ class EducationFragment : Fragment() {
                     val username = ds.child("username").getValue(String::class.java)!!
                     val degree = ds.child("degree").getValue(String::class.java)!!
                     val name= ds.child("name").getValue(String::class.java)!!
+                    val place = ds.child("place").getValue(String::class.java)!!
+                    val country= ds.child("country").getValue(String::class.java)!!
+                    val major = ds.child("major").getValue(String::class.java)!!
+                    val major_type = ds.child("major_type").getValue(String::class.java)!!
+                    val hornors = ds.child("hornors").getValue(String::class.java)!!
                     val start_date = ds.child("start_date").getValue(String::class.java)!!
                     val end_date = ds.child("end_date").getValue(String::class.java)!!
 
@@ -67,6 +72,11 @@ class EducationFragment : Fragment() {
                         jObject.put("username", username)
                         jObject.put("degree", degree)
                         jObject.put("name", name)
+                        jObject.put("place", place)
+                        jObject.put("country", country)
+                        jObject.put("major", major)
+                        jObject.put("major_type", major_type)
+                        jObject.put("hornors", hornors)
                         jObject.put("start_date", start_date)
                         jObject.put("exp_date", end_date)
 
@@ -93,7 +103,7 @@ class EducationFragment : Fragment() {
         val btn_back = view.findViewById(R.id.education_btn_back) as ImageButton
 
         btn_add!!.setOnClickListener{
-            val load_fragment = EducationInputFragment()
+            val load_fragment = EducationInputFragment().newInstance("",account_username,"","","","","","","","","")
             transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
             transaction.replace(R.id.contentContainer, load_fragment,"fragment_education_input")
             transaction.addToBackStack("fragment_education_input")
@@ -106,6 +116,22 @@ class EducationFragment : Fragment() {
             fm.popBackStack("fragment_education", FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
         return view
+    }
+
+    fun newInstance(username:String): EducationFragment {
+        val fragment = EducationFragment()
+        val bundle = Bundle()
+        bundle.putString("username", username)
+        fragment.setArguments(bundle)
+        return fragment
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = arguments
+        if (bundle != null) {
+            account_username = bundle.getString("username").toString()
+        }
     }
 
 

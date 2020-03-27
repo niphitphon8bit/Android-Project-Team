@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import org.json.JSONArray
+import org.json.JSONObject
 
 /**
  * A simple [Fragment] subclass.
@@ -28,7 +29,7 @@ class EducationInputFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var obj_hr_education : hr_education
-    var account_username : String = "60160180"
+    var account_username : String? = ""
 
     var Str_key = "" // key obj_hr_work_experience from firebase
 
@@ -36,13 +37,13 @@ class EducationInputFragment : Fragment() {
         var username: String? = "",
         var degree: String? = "",
         var name: String? = "",
-        var start_date: String? = "",
-        var end_date: String? = "",
         var place: String? = "",
         var country: String? = "",
         var major: String? = "",
         var major_type: String? = "",
-        var hornors: String? = ""
+        var hornors: String? = "",
+        var start_date: String? = "",
+        var end_date: String? = ""
     )
 
     override fun onCreateView(
@@ -104,94 +105,43 @@ class EducationInputFragment : Fragment() {
         linearLayout_1.setVisibility(View.VISIBLE)
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // ดึงข้อมูลมาเช็ค
-        account_username = "60160157"
         val mRootRef = FirebaseDatabase.getInstance().getReference()
         val mMessagesRef = mRootRef.child("hr_education")
-        mMessagesRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val list = JSONArray()
 
-                for (ds in dataSnapshot.children) {
-
-//                    val jObject = JSONObject()
-
-                    val username = ds.child("username").getValue(String::class.java)!!
-//                    val degree = ds.child("degree").getValue(String::class.java)!!
-//                    val name = ds.child("name").getValue(String::class.java)!!
-//                    val place = ds.child("place").getValue(String::class.java)!!
-//                    val country = ds.child("country").getValue(String::class.java)!!
-//                    val major = ds.child("major").getValue(String::class.java)!!
-//                    val major_type  = ds.child("major_type").getValue(String::class.java)!!
-//                    val hornors = ds.child("hornors").getValue(String::class.java)!!
-//                    val start_date = ds.child("start_date").getValue(String::class.java)!!
-//                    val end_date  = ds.child("end_date").getValue(String::class.java)!!
-
-                    if (username == account_username) {
-//                        jObject.put("key", ds.key)
-//                        jObject.put("username", username)
-//                        jObject.put("house_regis_address", house_regis_address)
-//                        jObject.put("house_regis_dist", house_regis_dist)
-//                        jObject.put("house_regis_amph", house_regis_amph)
-//                        jObject.put("house_regis_province", house_regis_province)
-//                        jObject.put("house_regis_zipcode", house_regis_zipcode)
-//                        jObject.put("house_cur_address", house_cur_address)
-//                        jObject.put("house_cur_dist", house_cur_dist)
-//                        jObject.put("house_cur_amph", house_cur_amph)
-//                        jObject.put("house_cur_province", house_cur_province)
-//                        jObject.put("house_cur_zipcode", house_cur_zipcode)
-//                        jObject.put("house_phone_number", house_phone_number)
-//                        jObject.put("mobile_phone_number", mobile_phone_number)
-//                        jObject.put("work_phone_number", work_phone_number)
-//                        jObject.put("work_in_phone_number", work_in_phone_number)
-//
-//                        list.put(jObject)
-//                        Str_key = ds.key.toString()
-//                        obj_hr_education = hr_education(
-//                            account_username,
-//                            degree,
-//                            name,
-//                            place,
-//                            country,
-//                            major,
-//                            major_type,
-//                            hornors,
-//                            start_date,
-//                            end_date
-
-                       // )
-                    }
-
-                }
-
-                if(Str_key != "") {
+        if(Str_key != "") {
                     view_degree.setText(obj_hr_education.degree )
                     view_place.setText(obj_hr_education.place )
                     view_country.setText(obj_hr_education.country )
                     view_major.setText(obj_hr_education.major )
                     view_major_type.setText(obj_hr_education.major_type )
-
                     view_hornors.setText(obj_hr_education.hornors )
                     view_name.setText(obj_hr_education.name )
                     view_start.setText(obj_hr_education.start_date)
                     view_end.setText(obj_hr_education.end_date)
 
-                }
+        }else{
+            btn_delete.setVisibility(View.GONE)
+        }
 
                 btn_save.setOnClickListener {
 
                     if(Str_key == ""){
+//                        println("insert hr_edu")
+                        var user = obj_hr_education.username
                         obj_hr_education = hr_education(
-                            account_username,
+                            user,
                             view_degree.text.toString(),
+                            view_name.text.toString(),
                             view_place.text.toString(),
                             view_country.text.toString(),
                             view_major.text.toString(),
                             view_major_type.text.toString(),
                             view_hornors.text.toString(),
-                            view_name.text.toString(),
                             view_start.text.toString(),
                             view_end.text.toString()
                         )
+//                        println("obj_hr")
+//                        println(obj_hr_education)
                         mMessagesRef.push().setValue(obj_hr_education)
                         Toast.makeText(activity!!.baseContext, "เพิ่มสำเร็จ", Toast.LENGTH_SHORT).show()
                         activity!!.supportFragmentManager.popBackStack()
@@ -212,14 +162,6 @@ class EducationInputFragment : Fragment() {
 
                 }
 
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        }) // mMessagesRef.addValueEventListener
-
         btn_delete.setOnClickListener{
             val builder: AlertDialog.Builder = AlertDialog.Builder(this.context)
             builder.setMessage("ต้องการลบหรือไม่?")
@@ -231,7 +173,7 @@ class EducationInputFragment : Fragment() {
 
                     Toast.makeText(activity!!.baseContext, "ลบสำเร็จ", Toast.LENGTH_SHORT).show()
                     val fm: FragmentManager = activity!!.getSupportFragmentManager()
-                    fm.popBackStack("_MembershipCardInputFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    fm.popBackStack("fragment_education_input", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 })
             builder.setNegativeButton("ยกเลิก",
                 DialogInterface.OnClickListener { dialog, which ->
@@ -250,16 +192,20 @@ class EducationInputFragment : Fragment() {
     }
 
 
-    fun newInstance(key: String, username:String, degree: String, name:String, start_date:String, exp_date:String):  EducationInputFragment {
+    fun newInstance(key: String, username:String, degree: String, name:String,place:String,country:String,major:String,major_type:String,hornors:String,start_date:String, exp_date:String):  EducationInputFragment {
         val fragment =  EducationInputFragment()
         val bundle = Bundle()
         bundle.putString("key", key)
         bundle.putString("username", username)
         bundle.putString("degree", degree)
         bundle.putString("name", name)
+        bundle.putString("place", place)
+        bundle.putString("country", country)
+        bundle.putString("major", major)
+        bundle.putString("major_type", major_type)
+        bundle.putString("hornors", hornors)
         bundle.putString("start_date", start_date)
         bundle.putString("exp_date", exp_date)
-
         fragment.setArguments(bundle)
         return fragment
     }
@@ -278,9 +224,8 @@ class EducationInputFragment : Fragment() {
                 bundle.getString("place").toString(),
                 bundle.getString("country").toString(),
                 bundle.getString("major").toString(),
-                bundle.getString("major_type").toString()
-
-
+                bundle.getString("major_type").toString() ,
+                bundle.getString("hornors").toString()
             )
             Str_key = bundle.getString("key").toString()
         }

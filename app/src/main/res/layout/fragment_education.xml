@@ -28,7 +28,8 @@
         android:text="การจัดการข้อมูลประวัติการศึกษา"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#FFFF"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyLayout"
